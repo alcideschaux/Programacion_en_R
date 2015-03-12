@@ -1,10 +1,10 @@
 # Programación en R
-Curso en swirl sobre "Programación en R" en español que cubre los aspectos básicos del lenguaje de programación R utilizado para la manipulación y análisis estadístico de datos. Este curso ha sido adaptado por el [Dr. Alcides Chaux](https://github.com/alcideschaux) para su uso en español a partir del curso correspondiente alojado en el repositorio de cursos oficial de swirl en [https://github.com/swirldev/swirl_courses](https://github.com/swirldev/swirl_courses).
+Curso en swirl sobre "Programación en R" en español que cubre los aspectos básicos del lenguaje de programación R, el que es utilizado para la manipulación y análisis estadístico de datos. Este curso ha sido adaptado por el [Dr. Alcides Chaux](https://github.com/alcideschaux) para su uso en español a partir del curso correspondiente alojado en el repositorio de cursos oficial de swirl en [https://github.com/swirldev/swirl_courses](https://github.com/swirldev/swirl_courses).
 
 Este curso puede ser usado con la versión original (en inglés) de swirl, disponible a través de CRAN, o con la versión en español, según se muestra más abajo.
 
 ## Instalación del curso
-Para instalar el curso debes tener primero la swirl instalado en R. Si ya tienes instalado swirl en tu sistema puedes obviar los siguientes 3 pasos y pasar directo a la instalación del curso propiamente dicho. Para instalar la versión original en inglés desde CRAN abre R/RStudio y usa:
+Para instalar el curso debes tener primero swirl instalado en R. Si ya tienes instalado swirl en tu sistema puedes obviar los siguientes 3 pasos y pasar directo a la instalación del curso propiamente dicho. Para instalar la versión original en inglés desde CRAN abre R/RStudio y usa:
 
 ```
 install.packages("swirl")
@@ -32,6 +32,7 @@ Una vez que finalice la instalación del curso puedes lanzar swirl y seleccionar
 
 ## Lecciones contenidas en el curso
 Este curso de "Programación en R" contiene las siguientes lecciones:
+
 1. Bloques de construcción básicos
 2. Espacio de trabajo y archivos
 3. Secuencias de números
