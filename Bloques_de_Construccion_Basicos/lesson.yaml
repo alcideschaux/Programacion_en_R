@@ -95,7 +95,7 @@
   Output: Primero, R multiplicó cada uno de los 3 elementos en z por 2. Luego le sumó 100 a cada elemento para obtener el resultado que ves arriba.
 
 - Class: text
-  Output: Otros operadore aritméticos comunes son `+`, `-`, `/`, y `^` (donde x^2 significa `x al cuadrado`. Para hallaz la raíz cuadrada, usa la función sqtr() y para hallar el valor absoluto, usa la función abs().
+  Output: Otros operadores aritméticos comunes son `+`, `-`, `/`, y `^` (donde x^2 significa `x al cuadrado`. Para hallar la raíz cuadrada, usa la función sqtr() y para hallar el valor absoluto, usa la función abs().
 
 - Class: cmd_question
   Output: Halla la raíz cuadrada de z - 1 y asigna el resultado a una nueva variable llamada my_sqrt.

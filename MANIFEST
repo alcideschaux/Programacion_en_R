@@ -3,8 +3,8 @@ Espacio_de_Trabajo_y_Archivos
 Secuencias_de_Numeros
 Vectores
 Valores_Ausentes
-Subsetting_Vectors
-Matrices_and_Data_Frames
+# Subsetting_Vectors
+# Matrices_and_Data_Frames
 Logic
 lapply_and_sapply
 vapply_and_tapply
