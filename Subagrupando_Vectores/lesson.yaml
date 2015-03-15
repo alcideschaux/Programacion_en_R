@@ -1,0 +1,200 @@
+- Class: meta
+  Course: R Programming
+  Lesson: Subagrupando vectores
+  Author: Nick Carchedi
+  Traductor: Alcides Chaux, M.D.
+  Type:
+  Organization:
+  Version: 2.2.0
+
+- Class: text
+  Output: En esta lección veremos cómo extraer elementos de un vector basándonos en algunas condiciones que especificamos.
+
+- Class: text
+  Output: Por ejemplo, podríamos estar solamente interesados en los primeros 20 elementos de un vector, o sólo en los elementos que no son NA, o sólo en aquellos que son positivos o se corresponden con una variable específica de interés. Para el final de esta lección, sabrás como manejar cada uno de estos escenarios.
+
+- Class: cmd_question
+  Output: He creado por tí un vector llamado x que contiene un ordenamiento aleatorio de 20 números (a partir de una distribución estándar normal) y 20 NAs. Tipea x ahora para ver cómo se ve.
+  CorrectAnswer: x
+  AnswerTests: omnitest(correctExpr='x')
+  Hint: Tipea x para ver sus contenidos.
+
+- Class: text
+  Output: La forma en la que le dices a R que quieres seleccionar algunos elementos particulares (i.e., un "subgrupo") a partir de un vector es colocando un "índice vector" en corchetes inmediatamente siguiendo el nombre del vector.
+
+- Class: cmd_question
+  Output: Para un ejemplo sencillo, prueba x[1:10] para ver los primeros diez elementos de x.
+  CorrectAnswer: x[1:10]
+  AnswerTests: omnitest(correctExpr='x[1:10]')
+  Hint: Visualiza los primeros diez elementos de x con x[1:10].
+
+- Class: text
+  Output: Los índices vectores vienen en cuatro diferentes sabors -- vectores lógicos, vectores de íntegros positivos, vectores de íntegros negativos, y vectores de cadenas de caracteres ("nombrados") -- cada uno de los cuales cubriremos en esta lección.
+
+- Class: text
+  Output: Empecemos por indexar con vectores lógicos. Un escenario común cuando se trabajan con datos reales es querer extraer todos los elementos de un vector que no sean NA (i.e., datos ausentes). Recuerda que is.na(x) producirá un vector de valores lógicos de la misma longitud de x, con TRUEs correspondiendo a valores NA y FALSEs correspondiendo a valores que no son NA en x.
+
+- Class: mult_question
+  Output: ¿Qué crees que x[is.na(x)] te dará?
+  AnswerChoices: Un vector de todos NAs; Un vector sin NAs; Un vector de TRUEs y FALSEs; Un vector de longitud 0
+  CorrectAnswer: Un vector de todos NAs
+  AnswerTests: omnitest(correctVal="Un vector de todos NAs")
+  Hint: Recuerda que is.na(x) nos dice si hay NAs en un vector. Por lo tanto, ¿si subagrupamos x basándonos en eso, que esperas que pase?
+
+- Class: cmd_question
+  Output: Demuestratelo tipeando x[is.na(x)].
+  CorrectAnswer: x[is.na(x)]
+  AnswerTests: omnitest(correctExpr='x[is.na(x)]')
+  Hint: Tipea x[is.na(x)] para ver que obtienes todos NAs, ¡lo que claramente no es lo que queremos!
+
+- Class: cmd_question
+  Output: Recuerda que `!` nos da la negación de una expresión lógica, de ahí que !is.na(x) puede ser leído como "no es NA". Por lo tanto, si queremos crear un vector llamado y que contenga todos los valores que no son NA en x, podemos usar y <- x[!is.na(x)]. Inténtalo.
+  CorrectAnswer: y <- x[!is.na(x)]
+  AnswerTests: omnitest(correctExpr='y <- x[!is.na(x)]')
+  Hint: Tipea y <- x[!is.na(x)] para capturar todos los valores no ausentes en x.
+
+- Class: cmd_question
+  Output: Imprime y en la consola.
+  CorrectAnswer: 'y'
+  AnswerTests: omnitest(correctExpr='y')
+  Hint: Tipea y para visualizar sus contenidos.
+
+- Class: text
+  Output: Ahora que hemos aislados los valores no ausentes en x y los hemos puesto en y, podemos subagrupar y como nos plazca.
+
+- Class: mult_question
+  Output: Recuerda que la expresión y > 0 nos dará un vector de valores lógicos de la misma longitud que y, con TRUEs correspondiendo a valores en y que son mayores que cero y FALSEs correspondiendo a valores en y que son menores o iguales a cero. ¿Qué te parece que y[y > 0] te dará?
+  AnswerChoices: Un vector de todos los elementos positivos en y; Un vector de todos los elementos negativos en y; Un vector de todos NAs; Un vector de longitud 0; Un vector de TRUEs y FALSEs
+  CorrectAnswer: Un vector de todos los elementos positivos en y
+  AnswerTests: omnitest(correctVal="Un vector de todos los elementos positivos en y")
+  Hint: La expresión lógica y > 0 te dará TRUE por cada elemento de y que sea positivo. Basándote en ésto, ¿qué crees que y[y > 0] regresará?
+
+- Class: cmd_question
+  Output: Tipea y[y > 0] para ver que obtenemos todos los elementos positivos en y, que también son los elementos positivos de nuestro vector original x.
+  CorrectAnswer: y[y > 0]
+  AnswerTests: omnitest(correctExpr='y[y > 0]')
+  Hint: Tipea y[y > 0] para ver sólo los elementos positivos en y.
+
+- Class: cmd_question
+  Output: Podrías preguntarte por qué simplemente no empezamos con x[x > 0] para aislar los elementos positivos de x. Intenta eso para ver por qué.
+  CorrectAnswer: x[x > 0]
+  AnswerTests: omnitest(correctExpr='x[x > 0]')
+  Hint: Intenta x[x > 0] para ver por qué no usamos este enfoque.
+
+- Class: text
+  Output: Debido a que NA no es un valor sino más bien un marcador de posición para una cantidad desconocida, la expresión NA > 0 se evalua como NA. De ahí que obtengamos un montón de NAs entremezclados entre nuestros números positivos cuando hacemos esto.
+
+- Class: cmd_question
+  Output: Combinando nuestro conocimiento sobre operadores lógicos con nuestro nuevo conocimiento sobre subagrupación podemos hacer esto -- x[!is.na(x) & x > 0]. Inténtalo.
+  CorrectAnswer: x[!is.na(x) & x > 0]
+  AnswerTests: omnitest(correctExpr='x[!is.na(x) & x > 0]')
+  Hint: Prueba x[!is.na(x) & x > 0] para ver qué obtienes.
+
+- Class: text
+  Output: En este caso, solictamos sólo valores de x que sean ambos no ausentes Y mayores que cero.
+
+- Class: text
+  Output: Ya te he mostrado cómo subagrupar solamente los primeros diez valores usando x[1:10]. En este caso, estamos proveyendo de un vector de íntegros positivos dentro de los corchetes, lo que le dice a R que regrese sólo los elementos de x numerados del 1 al 10.
+
+- Class: text
+  Output: Muchos lenguajes de programación usan lo que se llama "indexación basada en cero", lo que significa que el primer elemento de un vector es considerado el elemento 0. R usa "indexación basada en uno", lo que significa (¡acertaste!) que el primer elemento de un vector es considerado el elemento 1.
+
+- Class: cmd_question
+  Output: ¿Puedes descubrir cómo subagruparíamos el 3°, 5° y 7° elementos de x? Pista -- usa la función c() para especificar los números de los elementos como un vector numérico.
+  CorrectAnswer: x[c(3, 5, 7)]
+  AnswerTests: omnitest(correctExpr='x[c(3, 5, 7)]')
+  Hint: Crea un vector de índices con c(3, 5, 7), luego colócalo dentro de los corchetes.
+
+- Class: cmd_question
+  Output: Es importante que cuando uses vectores íntegros para subagrupar nuestro vector x, nos limitemos al conjunto de índices {1, 2, ..., 40} debido a que x tiene sólo 40 elementos. ¿Qué pasa si pedimos por el elemento 0 de x (i.e., x[0])? Pruebalo.
+  CorrectAnswer: x[0]
+  AnswerTests: omnitest(correctExpr='x[0]')
+  Hint: Intenta x[0] para ver qué pasa cuando nos referimos al elemento 0 de un vector, el cual no está definido en R.
+
+- Class: cmd_question
+  Output: Como esperarías, no obtenemos nada útil. Desafortunadamente, R no nos previene de hacer esto. ¿Qué pasa si pedimos por el elemento 3000° de x? Inténtalo.
+  CorrectAnswer: x[3000]
+  AnswerTests: omnitest(correctExpr='x[3000]')
+  Hint: Solicita el elemento 3000° de x (que no existe) con x[3000].
+
+- Class: text
+  Output: De nuevo, nada útil, pero R no impide que lo pidamos. Esto debería servir de advertencia. Siempre debes asegurarte de que lo que estás pidiendo se encuentra dentro de las constricciones del vector con el que estás trabajando.
+
+- Class: text
+  Output: ¿Y si estuviésemos interesados en todos los elementos de x EXCEPTO el 2º y el 10º? Sería muy tedioso construir un vector conteniendo todos los números del 1 al 40 EXCEPTO 2 y 10.
+
+- Class: cmd_question
+  Output: Por suerte, R acepta índices íntegros negativos. Mientras que x[c(2, 10)] nos da SOLO el 2º y el 10º elementos de x, x[c(-2, -10)] nos da todos los elementos de x EXCEPTO el 2º y 10º elementos. Prueba x[c(-2, -10)] ahora para ver ésto.
+  CorrectAnswer: x[c(-2, -10)]
+  AnswerTests: omnitest(correctExpr='x[c(-2, -10)]')
+  Hint: Intenta x[c(-2, -10)].
+
+- Class: cmd_question
+  Output: Una manera más corta de especificar múltiples números negativos es colocar el signo menos por delante del vector de números positivos. Tipea x[-c(2, 10)] para obtener exactamente los mismos resultados.
+  CorrectAnswer: x[-c(2, 10)]
+  AnswerTests: omnitest(correctExpr='x[-c(2, 10)]')
+  Hint: Usa x[-c(2, 10)] para simplicar un poco las cosas. Esto podría ahorrar mucho tiempo si es que se especifican muchos índices negativos.
+
+- Class: text
+  Output: Hasta ahora, hemos cubierto tres tipos de vectores de índice -- lógicos, de íntegros positivos, y de íntegros negativos. El único tipo que nos queda presenta el concepto de elementos "nombrados".
+
+- Class: cmd_question
+  Output: Crea un vector numérico con tres elementos nombrados usando vect <- c(foo = 11, bar = 2, norf = NA).
+  CorrectAnswer: vect <- c(foo = 11, bar = 2, norf = NA)
+  AnswerTests: omnitest(correctExpr='vect <- c(foo = 11, bar = 2, norf = NA)')
+  Hint: Crea un vector nombrado con vect <- c(foo = 11, bar = 2, norf = NA).
+
+- Class: cmd_question
+  Output: Cuando imprimimos vect en la consola, verás que cada elemento tiene un nombre. Pruébalo.
+  CorrectAnswer: vect
+  AnswerTests: omnitest(correctExpr='vect')
+  Hint: Tipea vect para visualizar sus contenidos.
+
+- Class: cmd_question
+  Output: Podemos también obtener los nombres de vect pasando vect como un argumento de la función names(). Inténtalo.
+  CorrectAnswer: names(vect)
+  AnswerTests: omnitest(correctExpr='names(vect)')
+  Hint: Verifica los resultados de names(vect).
+
+- Class: cmd_question
+  Output: Alternativmente, podemos crear un vector vect2 sin nombres con c(11, 2, NA). Haz esto ahora.
+  CorrectAnswer: vect2 <- c(11, 2, NA)
+  AnswerTests: omnitest(correctExpr='vect2 <- c(11, 2, NA)')
+  Hint: Crea un vector ordinario (sin nombres) llamado vect2 que contenga c(11, 2, NA).
+
+- Class: cmd_question
+  Output: Luego, podemos agregar el atributo de "names" ("nombres") a vect2 posteriormente con names(vect2) <- c("foo", "bar", "norf"). Adelante.
+  CorrectAnswer: names(vect2) <- c("foo", "bar", "norf")
+  AnswerTests: omnitest(correctExpr='names(vect2) <- c("foo", "bar", "norf")')
+  Hint: Agrega nombres a vect2 con  names(vect2) <- c("foo", "bar", "norf").
+
+- Class: cmd_question
+  Output: Ahora, verifiquemos que vect y vect2 son idénticos pasándolos como argumentos a la función identical().
+  CorrectAnswer: identical(vect, vect2)
+  AnswerTests: any_of_exprs('identical(vect, vect2)', 'identical(vect2, vect)')
+  Hint: La función identical() nos dice si sus dos primeros argumentos son, bueno, idénticos.
+
+- Class: text
+  Output: De hecho, vect y vect2 son vectores nombrados idénticos.
+
+- Class: mult_question
+  Output: Ahora, de regreso al hecho de subagrupar un vector por sus elementos nombrados. ¿Cuál de los siguientes comandos nos dará el segundo elemento de vect?
+  AnswerChoices: vect["bar"]; vect[bar]; vect["2"]
+  CorrectAnswer: vect["bar"]
+  AnswerTests: omnitest(correctVal='vect["bar"]')
+  Hint: Si queremos el elemento nombrado "bar" (i.e., el segundo elemento de vect), ¿qué comando nos dará esto?
+
+- Class: cmd_question
+  Output: Ahora, inténtalo.
+  CorrectAnswer: vect["bar"]
+  AnswerTests: omnitest(correctExpr='vect["bar"]')
+  Hint: Prueba vect["bar"].
+
+- Class: cmd_question
+  Output: Del mismo modo, podemos especificar un vector de nombres con vect[c("foo", "bar")]. Pruébalo.
+  CorrectAnswer: vect[c("foo", "bar")]
+  AnswerTests: omnitest(correctExpr='vect[c("foo", "bar")]')
+  Hint: Usa vect[c("foo", "bar")] para obtener sólo los elementos de vect nombrados "foo" y "bar".
+
+- Class: text
+  Output: Ahora ya conoces todos los cuatro métodos para subagrupar datos a partir de vectores. Enfoques distintos son mejores en escenarios distintos, y cuando tengas dudas, ¡simplemente prueba!
