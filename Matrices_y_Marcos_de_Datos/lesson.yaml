@@ -1,0 +1,179 @@
+- Class: meta
+  Course: Programación en R
+  Lesson: Matrices y Marcos de Datos
+  Author: Nick Carchedi
+  Traductor: Alcides Chaux, M.D.
+  Type:
+  Organization:
+  Version: 2.2.0
+
+- Class: text
+  Output: En esta lección, cubriremos matrices y marcos de datos ("data frames"). Ambos representan tipos "rectangulares" de datos, lo que significa que se usan para almacenar datos tabulares, con filas ("rows") y columnas ("columns").
+
+- Class: text
+  Output: La principal diferencia, como verás, es que las matrices pueden contener únicamente un solo tipo de clase de datos, mientras que los marcos de datos pueden consistir de muchos tipos de clases de datos.
+
+- Class: cmd_question
+  Output: Creemos un vector que contenga los números del 1 al 20 usando el operador `:`. Almacena el resultado en una variable llamada my_vector.
+  CorrectAnswer: my_vector <- 1:20
+  AnswerTests: omnitest(correctExpr='my_vector <- 1:20')
+  Hint: Has aprendido acerca del operador `:` en la lección sobre secuencias. Si quisieras crear un vector conteniendo los números 1, 2 y 3 (en ese orden), podrías usar c(1, 2, 3) o 1:3. En este caso, queremos los números del 1 al 20 almacenados en una variable llamada my_vector. También, recuerda que no necesitas la función c() cuando estás usando `:`.
+
+- Class: cmd_question
+  Output: Visualiza los contenidos del vector que acabas de crear.
+  CorrectAnswer: my_vector
+  AnswerTests: omnitest(correctExpr='my_vector')
+  Hint: Tipea my_vector para visualizar sus contenidos.
+
+- Class: cmd_question
+  Output: La función dim() nos cuenta las "dimensiones" de un objeto. ¿Qué pasa si ingresamos dim(my_vector)? Pruébalo a ver qué pasa.
+  CorrectAnswer: dim(my_vector)
+  AnswerTests: omnitest(correctExpr='dim(my_vector)')
+  Hint: Solo tipea dim(my_vector) para ver lo que pasa.
+
+- Class: cmd_question
+  Output: ¡Claramente, eso no es muy útil! Dado que my_vector es un vector, no tiene un atributo de "dim", así que simplemente aparece como NULL ("nulo"). Sin embargo, podemos averiguar su longitud usando la función length(). Prueba eso ahora.
+  CorrectAnswer: length(my_vector)
+  AnswerTests: omnitest(correctExpr='length(my_vector)')
+  Hint: Tipea length(my_vector) para ver la longitud del vector que acabas de crear.
+
+- Class: cmd_question
+  Output: ¡Ah, eso era lo que estábamos buscando! Pero, ¿qué pasa si le damos a my_vector un atributo de "dim"? Probemos a ver. Tipea dim(my_vector) <- c(4, 5).
+  CorrectAnswer: dim(my_vector) <- c(4, 5)
+  AnswerTests: omnitest(correctExpr='dim(my_vector) <- c(4, 5)')
+  Hint: Tipea dim(my_vector) <- c(4, 5) para dar a my_vector un atributo "dim".
+
+- Class: text
+  Output: Está bien que el último comando te haya parecido un poco extraño. ¡Debería serlo! La función dim() te permite obtener O asignar el atributo "dim" para un objeto en R. En este caso, hemos asignado el valor c(4, 5) como atributo "dim" al objecto my_vector.
+
+- Class: cmd_question
+  Output: Usa dim(my_vector) para confirmar que hemos asignado el atributo "dim" de manera correcta.
+  CorrectAnswer: dim(my_vector)
+  AnswerTests: omnitest(correctExpr='dim(my_vector)')
+  Hint: Solo tipea dim(my_vector) para asegurarme que el atributo "dim" ha sido asignado.
+
+- Class: cmd_question
+  Output: Otra forma de ver esto es llamando a la función attributes() en my_vector. Inténtalo ahora.
+  CorrectAnswer: attributes(my_vector)
+  AnswerTests: omnitest(correctExpr='attributes(my_vector)')
+  Hint: El comando attributes(my_vector) te mostrará todos los atributos del objeto my_vector.
+
+- Class: text
+  Output: Al igual que en una clase de matemáticas, cuando se trabaja con objetos bidimensionales (piensa en una tabla rectangular), el primer número es el número de filas y el segundo número es el número de columnas. Por lo tanto, acabamos de dar a my_vector 4 filas y 5 columnas.
+
+- Class: cmd_question
+  Output: ¡Pero espera! Eso ya no suena como si fuese un vector. Bueno, no lo es. Ahora es una matriz. Visualiza los contenidos de my_vector ahora para ver cómo se ve.
+  CorrectAnswer: my_vector
+  AnswerTests: omnitest(correctExpr='my_vector')
+  Hint: Tipea my_vector para ver sus contenidos.
+
+- Class: cmd_question
+  Output: Ahora, confirmemos que es realmente una matriz usando la función class(). Tipea class(my_vector) para ver lo que quiero decir.
+  CorrectAnswer: class(my_vector)
+  AnswerTests: omnitest(correctExpr='class(my_vector)')
+  Hint: Tipea class(my_vector) para ver la clase de my_vector.
+
+- Class: cmd_question
+  Output: Más que seguro, my_vector es ahora una matriz. Debemos almacenarla en una nueva variable que nos ayude a recordar lo que es. Almacena el valor de my_vector en una nueva variable llamda my_matrix.
+  CorrectAnswer: my_matrix <- my_vector
+  AnswerTests: omnitest(correctExpr='my_matrix <- my_vector')
+  Hint: Debido a que no podemos cambiar directamente el valor de nuestra variable my_vector, asignaremos su valor a una nueva variable con my_matrix <- my_vector.
+
+- Class: text
+  Output: El ejemplo que hemos usado hasta ahora fue pensado para ilustrar el punto de que una matriz es simplemente un vector atómico con un atributo de dimensión. Una forma más directa de crear la misma matriz es con la función matrix().
+
+- Class: cmd_question
+  Output: Ahora obtén el archivo de ayua para la función matrix() usando la función `?`.
+  CorrectAnswer: ?matrix
+  AnswerTests: omnitest(correctExpr='?matrix')
+  Hint: El comando ?matrix hará el truco.
+
+- Class: cmd_question
+  Output: Ahora, mira a la documentación para la función matrix y ve si puedes descubrir cómo crear una matriz conteniendo los mismos números (1-20) y dimensiones (4 filas, 5 columnas) usando la función matrix(). almacena los resultados en una variable llamada my_matrix2.
+  CorrectAnswer: my_matrix2 <- matrix(1:20, nrow=4, ncol=5)
+  AnswerTests: calculates_same_value('matrix(1:20, nrow=4, ncol=5)'); expr_creates_var('my_matrix2')
+  Hint: Llama a la función matrix() usando tres argumentos -- 1:20, el número de filas, y el número de columnas. Asegúrate de especificar los argumentos por sus propios nombres y de almancenar el resultado en my_matrix2 (no en my_matrix).
+
+- Class: cmd_question
+  Output: Finalmente, confirmemos que my_matrix y my_matrix2 son realmente idénticas. La función identical() nos dirá si sus primeros dos argumentos son los mismos. Inténtalo.
+  CorrectAnswer: identical(my_matrix, my_matrix2)
+  AnswerTests: any_of_exprs('identical(my_matrix, my_matrix2)', 'identical(my_matrix2, my_matrix)')
+  Hint: Si no estás seguro acerca de esta pregunta, revisa la documentación para identical() usando la función `?`.
+
+- Class: text
+  Output: Ahora, imagina que los números en nuestra tabla representan las mediciones de un experimento clínico, donde cada fila representa un paciente y cada columna representa una variable para la cual se tomaron las mediciones,
+
+- Class: text
+  Output: Tendrìamos que etiquetar las filas, de modo a saber cuáles números pertenecen a cada paciente en el experimento. Ona forma de hacer esto es añadir una columna a la matriz, la cual contenga los nombres de las 4 personas.
+
+- Class: cmd_question
+  Output: Empecemos por crear un vector de caracteres conteniendo los nombres de nuestros pacientes -- Bill, Gina, Kelly, y Sean. Recuerda que las comillas dobles le dicen a R que algo es una cadena de caracteres. Almacena el resultado en una variable llamda `patients`.
+  CorrectAnswer: patients <- c("Bill", "Gina", "Kelly", "Sean")
+  AnswerTests: omnitest(correctExpr='patients <- c("Bill", "Gina", "Kelly", "Sean")')
+  Hint: Asegúrate de usar mayúsculas para la primera letra de cada nombre y de almacenar el resultado en una variable llamada patients. También, ¡no entremezcles el orden de los pacientes! ¡Eso sería desastroso!
+
+- Class: cmd_question
+  Output: Ahora usaremos la función cbind() para combinar ("bind") columnas. No te preocupes en almacenar el resultado en una nueva variable. Simplemente llama a cbind() con dos argumentos -- el vector patients y my_matrix.
+  CorrectAnswer: cbind(patients, my_matrix)
+  AnswerTests: omnitest(correctExpr='cbind(patients, my_matrix)')
+  Hint: Tipea cbind(patients, my_matrix) para agregar el nombre de nuestros pacientes a la matriz de números.
+
+- Class: text
+  Output: ¡Algo se ve raro en el resultado! Parece que combinando el vector de caracteres con nuestra matriz de números provoca que todo esté encerrado en dobles comillas. Esto significa que hemos terminado con una matriz de cadenas de caracteres, lo que no es bueno.
+
+- Class: text
+  Output: Si recuerdas el principio de esta lección, te dije que las matrices pueden contener SÓLO UNA clase de datos. Por lo tanto, cuando intentamos combinar un vector de caracteres con una matriz numérica, R fue forzado a "coaccionar" los números en caracteres, de ahí las dobles comillas.
+
+- Class: text
+  Output: Esto se denomina "coacción implícita", debido a que no hemos pedido que sea así. Simplemente sucedió. Pero, ¿por qué R simplemente no convirtió los nombres de nuestros pacientes en números? Te dejaré reflexionar sobre esta pregunta por tu cuenta.
+
+- Class: cmd_question
+  Output: Así que, todavía tenemos pendiente la pregunta de cómo incluir los nombres de nuestros pacientes en la tabla sin destruir la integridad de nuestros datos numéricos. Intenta lo siguiente -- my_data <- data.frame(patients, my_matrix)
+  CorrectAnswer: my_data <- data.frame(patients, my_matrix)
+  AnswerTests: omnitest(correctExpr='my_data <- data.frame(patients, my_matrix)')
+  Hint: Tipea my_data <- data.frame(patients, my_matrix), para que podamos explorar lo que sucede.
+
+- Class: cmd_question
+  Output: Ahora visualiza los contenidos de my_data para ver qué hemos conseguido.
+  CorrectAnswer: my_data
+  AnswerTests: omnitest(correctExpr='my_data')
+  Hint: Tipea my_data para visualizar sus contenidos.
+
+- Class: text
+  Output: Parace que la función data.frame() nos ha permitido almacenar nuestro vector de caracteres de nombres justo a lo largo de nuestra matriz de datos. ¡Eso es exactamente lo que estábamos esperando!
+
+- Class: text
+  Output: Detrás del escenario, la función data.frame() toma cualquier número de argumentos y regresa un único objeto de clase `data.frame` ("marco de datos") que está compuesto por los elementos originales.
+
+- Class: cmd_question
+  Output: Confirmemos esto llamando a la función class() en nuestro marco de datos recién creado.
+  CorrectAnswer: class(my_data)
+  AnswerTests: omnitest(correctExpr='class(my_data)')
+  Hint: La función class() toma sólo un argumento -- el objeto para el cual quieres determinar la clase.
+
+- Class: text
+  Output: Es también posible asignar nobmres a las filas y columnas individuales de un marco de datos, lo que representa otra manera posible de determinar cuál fila de valores en nuestra table pertenece a cada paciente.
+
+- Class: text
+  Output: Sin embargo, debido a que ya  hemos resuelto ese problema, resolvamos un problema diferente asignando nombres a las columnas de nuestro marco de datos, de modo a saber qué tipo de medida representa cada columna.
+
+- Class: cmd_question
+  Output: Debido a que tenemos seis columnas (incluyendo los nombres de los pacientes), necesitaremos primero crear un vector conteniendo un elemento por cada columna. Crea un vector de caracteres llamado cnames que contenga los siguientes valores (en orden) -- "paciente", "edad", "peso", "pa", "frecuencia", "prueba".
+  CorrectAnswer: cnames <- c("paciente", "edad", "peso", "pa", "frecuencia", "prueba")
+  AnswerTests: omnitest(correctExpr='cnames <- c("paciente", "edad", "peso", "pa", "frecuencia", "prueba")')
+  Hint: Asegúrate que todos los nombres se encuentran en minúsculas, encerrados en dobles comillas, y separados por comas. No olvides usar la función c().
+
+- Class: cmd_question
+  Output: Ahora, usa la función colnames() para colocar el atributo `colnames` ("column names" = "nombres de columnas") para nuestro marco de datos. Esto es similar a la forma en la que usamos la función dim() antes en esta lección.
+  CorrectAnswer: colnames(my_data) <- cnames
+  AnswerTests: omnitest(correctExpr='colnames(my_data) <- cnames')
+  Hint: Prueba colnames(my_data) <- cnames.
+
+- Class: cmd_question
+  Output: Veamos si se hizo bien el trabajo. Imprime los contenidos de my_data.
+  CorrectAnswer: my_data
+  AnswerTests: omnitest(correctExpr='my_data')
+  Hint: Imprime los contenidos de my_data en la consola.
+
+- Class: text
+  Output: En esta lección, aprendiste los principios básicos del trabajo con dos estructuras de datos muy importantes y comunes -- matrices y marcos de datos. Hay mucho más que aprender y estaremos cubriendo tópicos más avanzados, particularmente con respecto a marcos de datos, en lecciones futuras.
