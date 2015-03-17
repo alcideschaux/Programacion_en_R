@@ -40,7 +40,7 @@ Este curso de "Programación en R" contiene las siguientes lecciones:
 5. Valores ausentes
 6. Subagrupando vectores
 7. Matrices y marcos de datos
-8. Lógica*
+8. Operaciones Lógicas
 9. lapply y sapply*
 10. vapply y tapply*
 11. Mirando a los datos*
