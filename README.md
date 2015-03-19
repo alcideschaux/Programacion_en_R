@@ -50,7 +50,7 @@ Este curso de "Programación en R" contiene las siguientes lecciones:
 7. Matrices y marcos de datos
 8. Operaciones Lógicas
 9. lapply y sapply
-10. vapply y tapply*
+10. vapply y tapply
 11. Mirando a los datos*
 12. Simulación*
 13. Fechas y horarios*

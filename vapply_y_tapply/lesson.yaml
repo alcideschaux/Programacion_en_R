@@ -1,0 +1,121 @@
+- Class: meta
+  Course: Programación en R
+  Lesson: vapply y tapply
+  Author: Nick Carchedi
+  Traductor: Alcides Chaux, M.D.
+  Type:
+  Organization:
+  Version: 2.2.11
+
+- Class: text
+  Output: En la última lección aprendiste acerca de dos miembros fundamentales de la familia *apply de funciones en R, lapply() y sapply(). Ambas toman una lista como dato de entrada, aplican una función a cada elemento de la lista, y luego combinan y regresan el resultado. lapply() siempre regresa una lista, mientras que sapply() intenta simplificar el resultado.
+
+- Class: text
+  Output: En esta lección, aprenderás a usar vapply() y tapply(), cada una de las cuales sirve para un propósito muy específico dentro de la metodología de Separa-Aplica-Combina. Para dar consistencia al Curso, usaremos el mismo conjunto de datos usado en la lección 'lapply and sapply'.
+
+- Class: text
+  Output: El conjunto de datos "Flags" del UCI Machine Learning Repository contiene detalles acerca de varias naciones y sus banderas. Más información puede encontrarse en http://archive.ics.uci.edu/ml/datasets/Flags.
+
+- Class: text
+  Output: He almacenado los datos en una variable llamada flags. Si ya hace un tiempo que terminaste la lección sobre 'lapply y sapply', puede que quieras volver a revisar los datos usando funciones como dim(), head(), str(), y summary() cuando regreses a la línea de comandos (>). También puedes tipear viewinfo() en la linea de comandos para obtener alguna documentación sobre el conjunto de datos. ¡Vamos a empezar!
+
+- Class: cmd_question
+  Output: Como viste en la lección pasada, la función unique() regresa un vector de valores únicos contenidos en el objeto que se le ha pasado. Por lo tanto, sapply(flags, unique) regresa una lista conteniendo un vector de valores únicos para cada columna del conjunto de datos flags. Inténtalo ahora.
+  CorrectAnswer: sapply(flags, unique)
+  AnswerTests: omnitest(correctExpr='sapply(flags, unique)')
+  Hint: Usa sapply(flags, unique) para regresar una lista conteniendo un vector de valores únicos por cada columna del conjunto de datos flags
+
+- Class: text
+  Output: ¿Qué pasaría si hubieses olvidado como unique() trabaja y erróneamente creías que regresaba el *número* de valores únicos contenido en el objeto que se le ha pasado? Entonces incorrectamente hubieses esperado que sapply(flags, unique) regrese un vector numérico, ya que cada elemento de la lista regresada contendría un único número y sapply() podría entonces simplificar el resultado en un vector.
+
+- Class: text
+  Output: Cuando se trabaja interactivamente (en la línea de comandos) esto no es tanto un problema, ya que inmediatamente ves el resultado y rápidamente reconoces tu error. Sin embargo, cuando no se trabaja interactivamente (e.g., al escribir tus propias funciones), un malentendido puede no detectarse y dar resultados incorrectos más adelante. Por lo tanto, podrías querer ser más cuidadoso y es entonces cuando vapply() es útil.
+
+- Class: text
+  Output: Mientras que sapply() intenta "adivinar" el formato correcto del resultado, vapply() te permite especificarlo explícitamente. Si el resultado no se corresponde con el formato que especificaste, vapply() tirará un error, haciendo que pare la operación. Esto puede prevener problemas significativos en tu código que pueden ser causados por obtener retornos inesperados a partir de sapply().
+
+- Class: cmd_question
+  Output: Prueba vapply(flags, unique, numeric(1)), lo que dice que esperar que cada elemento del resultado sea un vector numérico de longitud 1. Dado que realmente esto NO es el caso, OBTENDRÝS UN ERROR. Una vez que obtengas el error, tipea ok() para continuar con la próxima pregunta.
+  CorrectAnswer: ok()
+  AnswerTests: omnitest(correctExpr="ok()")
+  Hint: Tipea vapply(flags, unique, numeric(1)), luego tipea ok() para continuar con la próxima pregunta
+
+- Class: cmd_question
+  Output: Recuerda de la lección previa que sapply(flags, class) regresará un vector de caracteres conteniendo la clase de cada columna en el conjunto de datos. Prueba eso otra vez para ver el resultado.
+  CorrectAnswer: sapply(flags, class)
+  AnswerTests: omnitest(correctExpr="sapply(flags, class)")
+  Hint: Tipea sapply(flags, class) para obtener un vector de caracteres conteniendo las clases de columnas
+
+- Class: cmd_question
+  Output: Si queremos ser explícitos acerca del formato del resultado que esperamos, podemos usar vapply(flags, class, character(1)). El argumento 'character(1)' le dice a R que esperamos que la función class regrese un vector de caracteres de longitud 1 cuando se aplica a CADA columna del conjunto de datos flags. Inténtalo ahora.
+  CorrectAnswer: vapply(flags, class, character(1))
+  AnswerTests: omnitest(correctExpr="vapply(flags, class, character(1))")
+  Hint: Usa vapply(flags, class, character(1)) para regresar un vector de caracteres de clases de las columnas
+
+- Class: text
+  Output: Nota que dado que nuestra expectativa era correcta (i.e., character(1)), el resultado de vapply() es idéntico al resultado de sapply() -- un vector de caracteres de clases de las columnas.
+
+- Class: text
+  Output: Puedes considerar que vapply() es más "seguro" que sapply() dado que requiere que especifiques el formato del resultado por adelantado, en vez de simplemente dejar que R "adivine" lo que quieres. Además, vapply() puede que funcione más rápido que sapply() en conjuntos de datos grandes. Sin embargo, cuando estás analizando los datos interactivamente (en la línea de comandos), sapply() te ahora un poco el tipeado y con frecuencia será más que suficiente.
+
+- Class: text
+  Output: Como analista de datos, con frecuencia querrás separar tus datos en grupos basándote en el valor de alguna variable, para luego aplicar una función a los miembros de cada grupo. La siguiente función que veremos, tapply(), hace exactamente eso.
+
+- Class: cmd_question
+  Output: Usa ?tapply para obtener la documentación.
+  CorrectAnswer: ?tapply
+  AnswerTests: any_of_exprs('?tapply', 'help(tapply)')
+  Hint: Obten el archivo de ayuda con ?tapply.
+
+- Class: cmd_question
+  Output: La variable 'landmass' en nuestro conjunto de datos toma valores íntegros entre 1 y 6, cada uno de los cuales representa una diferente parte del mundo. Usa table(flags$landmass) cuántas banderas/países caen dentro de cada categoría.
+  CorrectAnswer: table(flags$landmass)
+  AnswerTests: omnitest(correctExpr="table(flags$landmass)")
+  Hint: Usa table(flags$landmass) para ver cuántas banderas/países caen dentro de cada grupo
+
+- Class: cmd_question
+  Output: La variable 'animate' en nuestro conjunto de datos toma el alor 1 si la bandera del país contiene una imagen animada (e.g., un águila, un árbol, una mano humana) y 0 en caso contrario. Usa table(flags$animate) para ver cuántas banderas contienen una imagen animada.
+  CorrectAnswer: table(flags$animate)
+  AnswerTests: omnitest(correctExpr="table(flags$animate)")
+  Hint: Usa table(flags$animate) para ver cuántas banderas contienen una imagen animada.
+
+- Class: text
+  Output: Esto nos dice que 39 banderas contienen un objeto animado (animate = 1) y que 155 no (animate = 0).
+
+- Class: cmd_question
+  Output: Si tomas la media aritmética de un montón de 1s y 0s obtienes la proporción de 1s. Usa tapply(flags$animate, flags$landmass, mean) para aplicar la función mean() a la variable 'animate' por cada uno de los seis grupos de 'landmass'. Esto nos dará la proporción de banderas que contienen una imagen animada DENTRO de cada grupo.
+  CorrectAnswer: tapply(flags$animate, flags$landmass, mean)
+  AnswerTests: omnitest(correctExpr="tapply(flags$animate, flags$landmass, mean)")
+  Hint: tapply(flags$animate, flags$landmass, mean) nos dará la proporción de banderas conteniendo una imagen animada dentro de cada grupo.
+
+- Class: text
+  Output: El primer grupo de 'landmass' (landmass = 1) corresponde a Norte América y contiene la mayor proporción de banderas con una imagen animada (0.4194).
+
+- Class: cmd_question
+  Output: Igualmente, podemos mirar el sumario de los valores poblacionales (en millones redondeados) para paises con y sin el color rojo en su bandera con tapply(flags$population, flags$red, summary).
+  CorrectAnswer: tapply(flags$population, flags$red, summary)
+  AnswerTests: omnitest(correctExpr="tapply(flags$population, flags$red, summary)")
+  Hint: Puedes ver un sumario de poblaciones para países con y sin el color rojo en su bandera con tapply(flags$population, flags$red, summary).
+
+- Class: mult_question
+  Output: ¿Cuál es la media poblacional (en millones) para países *sin* el color rojo en su bandera?
+  AnswerChoices: 9.0; 4.0; 27.6; 3.0; 22.1; 0.0
+  CorrectAnswer: 3.0
+  AnswerTests: omnitest(correctVal= '3.0')
+  Hint: Usa el resultado de la última pregunta. Recuerda que red = 0 significa que el color rojo ("red") NO está presente en la bandera del país.
+
+- Class: cmd_question
+  Output: Por último, usa el mismo enfoque para mirar el sumario de los valores poblacionales para cada uno de las regiones mundiales (variable "landmasses").
+  CorrectAnswer: tapply(flags$population, flags$landmass, summary)
+  AnswerTests: omnitest(correctExpr="tapply(flags$population, flags$landmass, summary)")
+  Hint: Puedes ver un sumario de poblaciones de cada una de las regiones mundiales llamando a tapply() con 3 argumentos (flags$population, flags$landmass, y summary).
+
+- Class: mult_question
+  Output: ¿Cuál es la población máxima (en millones) para la región cuarta (Africa)?
+  AnswerChoices: 56.00; 1010.0; 119.0; 5.00; 157.00
+  CorrectAnswer: 56.00
+  AnswerTests: omnitest(correctVal= '56.00')
+  Hint: Usa el resultado de la última pregunta.
+
+- Class: text
+  Output: En esta lección has aprendido a usar vapply() como una alternativa más segura a sapply(), la que es muy útil cuando estás escribiendo tus propias funciones. También aprendiste a usar tapply() para partir tus datos en grupos basándote en el valor de alguna variable, para luego aplicar una función a cada grupo. Estas funciones serán muy útiles en tu búsqueda de ser un mejor analista de datos.
