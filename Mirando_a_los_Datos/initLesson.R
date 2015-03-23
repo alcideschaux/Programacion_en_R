@@ -1,6 +1,6 @@
 # Path to data
 .datapath <- file.path(path.package('swirl'), 'Courses',
-                      'R_Programming', 'Looking_at_Data',
+                      'Programacion_en_R', 'Mirando_a_los_Datos',
                       'plant-data.txt')
 # Read in data
 plants <- read.csv(.datapath, strip.white=TRUE, na.strings="")

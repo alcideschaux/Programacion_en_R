@@ -1,0 +1,122 @@
+- Class: meta
+  Course: Programación en R
+  Lesson: Mirando a los datos
+  Author: Nick Carchedi
+  Traductor: Alcides Chaux, M.D.
+  Type:
+  Organization:
+  Version: 2.2.11
+
+- Class: text
+  Output: Cada vez que estás trabajando con un conjunto de datos nuevo, ¡lo primero que deberías hacer es mirarlo! ¿Cuál es el formato de los datos? ¿Cuáles son las dimensiones? ¿Cuáles son los nombres de las variables? ¿Cómo están las variables almacenadas? ¿Hay datos ausentes? ¿Hay algún error en los datos?
+
+- Class: text
+  Output: Esta lección te enseñará cómo responder estas preguntas y más usando las funciones internas de R. Estaremos usando un conjunto de datos construido de la base de datos del programa PLANTS del Ministerio de Agricultura de los Estados Unidos (http://plants.usda.gov/adv_search.html).
+
+- Class: cmd_question
+  Output: He almacenado los datos en una variable llamada plants. Tipea ls() para listar las variables en tu espacio de trabajo, entre las cuales debería estar plants.
+  CorrectAnswer: ls()
+  AnswerTests: omnitest(correctExpr='ls()')
+  Hint: Usa ls() para listar las variables en tu espacio de trabajo
+
+- Class: cmd_question
+  Output: Empecemos por verificar la clase de la variable plants con class(plants). Esto nos dará una pista acerca de la estructura general de los datos.
+  CorrectAnswer: class(plants)
+  AnswerTests: omnitest(correctExpr='class(plants)')
+  Hint: Usa class(plants) para verificar la clase de la variable plants
+
+- Class: text
+  Output: Es muy común almacenar los datos en un marco de datos ("data frame"). Es la clase por defecto para la lectura de datos en R usando funciones tales como read.csv() y read.table(), sobre las que aprenderás en otra lección.
+
+- Class: cmd_question
+  Output: Dado el conjunto de datos se almacena en un marco de datos, sabemos que es rectangular. En otras palabras, tiene dos dimensiones (filas y columnas) y encaja cómodamente en una tabla u hoja de cálculo. Usa dim(plants) para ver exactamente con cuántas filas y columnas estamos trabajando.
+  CorrectAnswer: dim(plants)
+  AnswerTests: omnitest(correctExpr='dim(plants)')
+  Hint: Usa dim(plants) para ver las dimensiones exactas del conjunto de datos plants
+
+- Class: text
+  Output: El primer número que ves (5166) es el número de filas (observaciones) y el segundo número (10) es el número de columnas (variables).
+
+- Class: cmd_question
+  Output: También puedes usar nrow(plants) para ver solamente el número de filas. Inténtalo.
+  CorrectAnswer: nrow(plants)
+  AnswerTests: omnitest(correctExpr='nrow(plants)')
+  Hint: Usa nrow(plants) para ver solamente el número de columnas
+
+- Class: cmd_question
+  Output: ... Y ncol(plants) para ver solamente el número de columnas.
+  CorrectAnswer: ncol(plants)
+  AnswerTests: omnitest(correctExpr='ncol(plants)')
+  Hint: Usa ncol(plants) para ver solamente el número de columnas
+
+- Class: cmd_question
+  Output: Si te da curiosidad por saber cuánto espacio ocupa el conjunto de datos en la memoria, puedes usar object.size(plants).
+  CorrectAnswer: object.size(plants)
+  AnswerTests: omnitest(correctExpr='object.size(plants)')
+  Hint: object.size(plants) te dirá cuánta memoria es ocupada por el conjunto de datos plants
+
+- Class: cmd_question
+  Output: Ahora que ya tenemos una idea de la forma y tamaño del conjunto de datos, veamos que hay por dentro. names(plants) regresará un vector de caracteres conteniendo los nombres de las columnas (i.e., variables). Pruébalo.
+  CorrectAnswer: names(plants)
+  AnswerTests: omnitest(correctExpr='names(plants)')
+  Hint: names(plants) regresará un vector de caracteres con los nombres de las columnas (i.e., variables)
+
+- Class: text
+  Output: Hemos aplicado nombres bastante descriptivos a este conjunto de datos, pero esto no siempre va a ser así. El siguiente paso lógico es mirar directamente a los datos. Sin embargo, nuestro conjunto de datos contiene más de 5000 observaciones (filas), por lo que sería impráctico visualizado todo de una sola vez.
+
+- Class: cmd_question
+  Output: La función head() te permite previsualizar el inicio del conjunto de datos. Inténtalo usando un solo argumento.
+  CorrectAnswer: head(plants)
+  AnswerTests: omnitest(correctExpr='head(plants)')
+  Hint: head(plants) te mostrará el inicio del conjunto de datos
+
+- Class: text
+  Output: Tomate un minuto para ver y entender bien el resultado anterior. Cada fila está etiquetada con el número de observación y cada columna con el nombre de la variable. Tu pantalla probablemente no es lo suficientemente ancha para ver todas las 10 columnas una a lado de otra, en cuyo caso R muestra tantas columnas como sea posible en cad línea antes de continua con la siguiente.
+
+- Class: cmd_question
+  Output: Por defecto, head() te muestra las primeras seis filas de los datos. Puedes alterar este comportamiento pasando como un segudo argumento el número de filas que quiseras ver. Usa head() para previsualizar las primeras 10 filas de plants.
+  CorrectAnswer: head(plants, 10)
+  AnswerTests: omnitest(correctExpr='head(plants, 10)')
+  Hint: head(plants, 10) te mostrará las primeras 10 filas del conjunto de datos
+
+- Class: cmd_question
+  Output: Lo mismo se aplica para usar tail() para previsualizar el final del conjunto de datos. Usa tail() para ver las últimas 15 filas.
+  CorrectAnswer: tail(plants, 15)
+  AnswerTests: omnitest(correctExpr='tail(plants, 15)')
+  Hint: tail(plants, 15) te mostrará las últimas 15 filas del conjunto de datos
+
+- Class: cmd_question
+  Output: Después de previsualizar el comienzo y el final de los datos, probablemente notaste muchos NAs, los que corresponden a marcadores de posición para valores ausentes. Usa summary(plants) para entender mejor cómo cada variable está distribuida y cuánto del conjunto de datos está ausente
+  CorrectAnswer: summary(plants)
+  AnswerTests: omnitest(correctExpr='summary(plants)')
+  Hint: Prueba summary(plants) para ver cómo cada variable está distribuida y con cuántos valores ausentes estamos trabajando
+
+- Class: text
+  Output: summary() provee diferentes resultados para cada variable, dependiendo de su clase. Para datos numéricos tales como Precip_Min, summary() muestra el mínimo, 1er cuartil, mediana, media, 3er cuartil, y máximo. Estos valores nos ayudan a entender cómo los datos están distribuidos.
+
+- Class: text
+  Output: Para variables categóricas (llamadas variables "factores" en R), summary() muestra el número de veces que cada valor (o "nivel") aparece en los datos. Por ejemplo, cada valor de Scientific_Name aparece sólo una vez, dado que es único para una planta específica. En contraste, el sumario para Duration (también una variable factor) nos dice que nuestro conjunto de datos contiene 3031 plantas perennes (Perennial), 682 plantas anuales (Annual), etc.
+
+- Class: cmd_question
+  Output: Puedes ver que R ha truncado el sumario para Active_Growth_Period incluyendo una categoría inclusiva llamda "Others" ("otros"). Dado que es una variable categórica/factor, podemos ver cuántas veces cada valor realmente aparece en nuestros datos con table(plants$Active_Growth_Period).
+  CorrectAnswer: table(plants$Active_Growth_Period)
+  AnswerTests: omnitest(correctExpr='table(plants$Active_Growth_Period)')
+  Hint: table(plants$Active_Growth_Period) mostrará los conteos de cada nivel de la variable factor
+
+- Class: text
+  Output: Cada una de las funciones que hemos presentado hasta ahora tiene su motivo de hacerte entender mejor la estrucutra de tus datos. Sin embargo, hemos dejado lo mejor para el final ...
+
+- Class: cmd_question
+  Output: Quizás la función más útil y concisa para entender la e*str*uctura de tus datos es str(). Pruébala ahora.
+  CorrectAnswer: str(plants)
+  AnswerTests: omnitest(correctExpr='str(plants)')
+  Hint: Usa str(plants) para ver la estrctura de tus datos
+
+- Class: text
+  Output: Lo bello de str() es que combina muchas de las características de las otras funciones que ya has visto, todo en un formato conciso y leíble. Al comiento nos dice que la clase de plants es "data.frame" y que tiene 5166 observaciones y 10 variables. Nos da el nombre y clase de cada variable, así como una previsualización de sus contenidos.
+
+- Class: text
+  Output: str() es realmente una función muy general que puedes usar con la mayoría de los objetos en R. Cada vez que quieras entender la estructura de algo (un conjunto de datos, función, etc.), str() es un buen lugar para empezar.
+
+- Class: text
+  Output: En esta lección has aprendido cómo tener una idea de la estructura y contenidos de un conjunto de datos nuevo usando una colección de funciones simples y útiles. Tomarte el tiempo de hacer esto desde el principio puede ahorrarte tiempo y frustración más tarde durante tu análisis.
