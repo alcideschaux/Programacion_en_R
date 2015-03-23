@@ -58,6 +58,19 @@ Este curso de "Programación en R" contiene las siguientes lecciones:
 
 \* Estas lecciones se encuentran en preparación.
 
+## Problemas conocidos
+Aquellos usuarios de Microsoft Windows podrían observar símbolos inusuales reemplazando los caracteres acentuados. Esto es porque Windows utiliza un sistema de codificación (Windows 1252) distinto al de Linux (UTF-8). Esto se puede resolver fácilmente desde RStudio, cambiando el sistema de codificación para que los caracteres acentuados se muestren correctamente.
+
+Para cambiar el sistema de codificación lanza RStudio y abre la ventana de opciones desde Tools -> Global Options
+
+![Figura 1](UTF-8_1.png)
+
+Desde ahí, en la ventana "General" ve a la sección "Default text encoding" y haz click en el botón "Change..." (ver figura arriba). Se abrirá una nueva ventana, en la cual deberás seleccionar "UTF-8" como opción (ver figura abajo, ten en cuentra que las figuras pueden verse ligeramente diferentes en tu computadora).
+
+![Figura 2](UTF-8_2.png)
+
+Una vez seleccionada "UTF-8" como opción apretar "OK" para ir a la ventana de opciones globales, y "OK" nuevamente ahí para volver a RStudio. Esto debería solucionar el problema de los caracteres acentuados.
+
 ## Distribución del curso
 Siguiendo la política establecida en el repositorio oficial de cursos de swirl, este curso puede utilizarse libre y gratuitamente.
 
