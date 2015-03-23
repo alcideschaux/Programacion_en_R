@@ -71,6 +71,8 @@ Desde ahí, en la ventana "General" ve a la sección "Default text encoding" y h
 
 Una vez seleccionada "UTF-8" como opción apretar "OK" para ir a la ventana de opciones globales, y "OK" nuevamente ahí para volver a RStudio. Esto debería solucionar el problema de los caracteres acentuados.
 
+Recuerda reiniciar RStudio antes de volver a cargar `swirl`, para que los cambios surtan efecto.
+
 ## Distribución del curso
 Siguiendo la política establecida en el repositorio oficial de cursos de swirl, este curso puede utilizarse libre y gratuitamente.
 
