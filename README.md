@@ -53,7 +53,7 @@ Este curso de "Programación en R" contiene las siguientes lecciones:
 10. vapply y tapply
 11. Mirando a los datos
 12. Simulación
-13. Fechas y horarios*
+13. Fechas y horarios
 14. Básico de gráficos*
 
 \* Estas lecciones se encuentran en preparación.
