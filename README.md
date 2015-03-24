@@ -25,13 +25,13 @@ library(swirl)
 Puedes instalar el curso alojado en este repositorio usando el comando:
 
 ```
-install_from_github("alcideschaux", "Programacion_en_R")
+install_course_github("alcideschaux", "Programacion_en_R")
 ```
 
 Alternativamente, se puede instalar este curso bajándolo como archivo comprimido haciendo click en [Programacion_en_R.zip](https://github.com/alcideschaux/Programacion_en_R/blob/master/Programacion_en_R.zip). Una vez bajado el archivo, se debe ingresar el siguiente comando en R/RStudio:
 
 ```
-swirl::install_from_zip("~Downloads/Programacion_en_R.zip")
+install_course_zip("~Downloads/Programacion_en_R.zip")
 ```
 
 donde `~Downloads/Programacion_en_R.zip` es la ruta del archivo bajado.
