@@ -1,0 +1,173 @@
+- Class: meta
+  Course: Programación en R
+  Lesson: Simulación
+  Author: Nick Carchedi
+  Traductor: Alcides Chaux, M.D.
+  Type:
+  Organization:
+  Version: 2.2.11
+
+- Class: text
+  Output: Una de las grandes ventajas de usar un lenguaje de programación estadística como R es su vasta colección de herramientas para la simulación de números aleatorios.
+
+- Class: text
+  Output: Esta lección asume familiaridad con algunas distribuciones de probabilidad comunes, pero estos tópicos se discutirán sólo al respecto de la generación de números aleatorios. Incluso si no tienes experiencia previa con estos conceptos, deberías ser capaz de completar la lección y entender las ideas principales.
+
+- Class: cmd_question
+  Output: La primera función que usaremos para generar números aleatorios es sample(). Usa ?sample para revisar la documentación.
+  CorrectAnswer: ?sample
+  AnswerTests: omnitest(correctExpr='?sample')
+  Hint: Usa '?sample' para obtener la documentación de la función sample()
+
+- Class: cmd_question
+  Output: Simulemos el lanzamiento de cuatro dados de seis caras con sample(1:6, 4, replace = TRUE).
+  CorrectAnswer: sample(1:6, 4, replace = TRUE)
+  AnswerTests: match_call('sample(1:6, 4, replace = TRUE)')
+  Hint: Tipea sample(1:6, 4, replace = TRUE) para simular el lanzamiendo de 4 dados de seis caras
+
+- Class: cmd_question
+  Output: Ahora repite el comando para ver cómo difiere el resultado (la probabildiad de obtener exactamente el mismo resultado es (1/6)^4 = 0.00077, ¡una probabilidad muy pequeña!)
+  CorrectAnswer: sample(1:6, 4, replace = TRUE)
+  AnswerTests: match_call('sample(1:6, 4, replace = TRUE)')
+  Hint: Tipea sample(1:6, 4, replace = TRUE) para simular el lanzamiento de 4 dados de seis caras
+
+- Class: text
+  Output: sample(1:6, 4, replace = TRUE) le instruye a R para aleatoriamente seleccionar cuatro números entre 1 y 6, CON reemplazo. Muestreo con reemplazo simplemente significa que cada número es "reemplazado" después de que es seleccionado, de modo a que el mismo número puede aparecer más de una vez. Esto es lo que queremos aquí, dado que el lanzamiento de un dado no debería afectar el lanzamiento de cualquiera de los otros dados.
+
+- Class: cmd_question
+  Output: Ahora muestrea 10 números entre 1 y 20, SIN reemplazo. Para muestrear sin reemplazo, simplemente no incluyas el argumento 'replace'.
+  CorrectAnswer: sample(1:20, 10)
+  AnswerTests: match_call('sample(1:20, 10)')
+  Hint: Tipea sample(1:20, 10) para muestrear 10 números del 1 al 20, sin reemplazo
+
+- Class: text
+  Output: Dado que el último comando muestreó sin reemplazo, ningún número aparece más de una vez en el resultado.
+
+- Class: cmd_question
+  Output: LETTERS ("letras") es una variable predefinida en R conteniendo un vector de todas las 26 letras del alfabeto inglés. Hechémosle un vistazo.
+  CorrectAnswer: LETTERS
+  AnswerTests: omnitest(correctExpr='LETTERS')
+  Hint: Tipea LETTERS para imprimir sus contenidos en la consola
+
+- Class: cmd_question
+  Output: La función sample() también puede ser usada para permutar o rearreglar los elementos de un vector. Por ejemplo, prueba sample(LETTERS) para permutar todas las 26 letras del alfabeto inglés.
+  CorrectAnswer: sample(LETTERS)
+  AnswerTests: omnitest(correctExpr='sample(LETTERS)')
+  Hint: Usa sample(LETTERS) para permutar todas las 26 letras del alfabeto inglés
+
+- Class: text
+  Output: Esto es idéntico a tomar una muestra de tamaño 26 de LETTERS, sin reemplazo. Cuando el argumento "size" ("tamaño") no se especifica, R toma una muestra de igual tamaño al vector del cual se está muestreando.
+
+- Class: text
+  Output: Ahora, supone que queremos simular 100 lanzamientos de una moneda de 2 caras alterada. Esta moneda en particular tiene una probabilidad de 0.3 de caer "cruz" y 0.7 de probabilidad de caer "cara".
+
+- Class: cmd_question
+  Output: Asignemos el valor 0 para cruz y el valor 1 para cara. Usa sample() para obtener una muestra de tamaño 100 del vector c(0,1), con reemplazo. dado que la moneda está alterada, debemos asignar probabilidades específicas a los valores 0 (cruz) y 1 (cara) con un cuarto argumento, prob = c(0.3, 0.7). Asigna el resultado a una nueva variable llamada flips.
+  CorrectAnswer: flips <- sample(c(0,1), 100, replace = TRUE, prob = c(0.3, 0.7))
+  AnswerTests: match_call('flips <- sample(c(0,1), 100, replace = TRUE, prob = c(0.3, 0.7))')
+  Hint: El siguiente comando produce 100 lanzamientos de una moneda alterada y asigna el resultado, flips <- sample(c(0,1), 100, replace = TRUE, prob = c(0.3, 0.7))
+
+- Class: cmd_question
+  Output: Visualiza los contenidos de la variable flips.
+  CorrectAnswer: flips
+  AnswerTests: omnitest(correctExpr='flips')
+  Hint: Simplemente tipea flips para ver sus contenidos
+
+- Class: cmd_question
+  Output: Dado que hemos establecido que la probabilidad de que caiga cara en un lanzamiento cualquiera es 0.7, esperamos que aproximadamente 70 de los lanzamientos de nuestra moneda tengan el valor 1. Cuenta el número verdadero de 1s contenido en los lanzamientos usando la función sum().
+  CorrectAnswer: sum(flips)
+  AnswerTests: omnitest(correctExpr='sum(flips)')
+  Hint: sum(flips) sumará todos los 1s y 0s, dándonos el total de 1s en los lanzamientos
+
+- Class: cmd_question
+  Output: El lanzamiento de una moneda tiene un desenlace binario (0 o 1) y estamos llevando a cabo 100 evaluaciones independientes (lanzamientos de moneda), por lo que podemos usar rbinom() para simular una variable aleatoria binomial. Obtén la documentación de rbinom() usando ?rbinom.
+  CorrectAnswer: ?rbinom
+  AnswerTests: omnitest(correctExpr='?rbinom')
+  Hint: Tipea ?rbinom para obtener el archivo de ayuda de rbinom()
+
+- Class: text
+  Output: Cada probabilidad en R tiene una función r*** (por "random", aleatorio), una función d*** (por "density", densidad), a función p*** (por "probability", probabilidad) y una función q*** (por "quantile", cuartilo). Estamos más interesados en las funciones r*** en esta lección, pero te aliento a que explores las otras por tu cuenta.
+
+- Class: cmd_question
+  Output: Una variable aleatoria binomial representa el número de "éxitos" (caras) en un determinado número de "evaluaciones" independientes (lanzamientos de moneda). Por lo tanto, podemos general una variable aleatoria simple que represente el número de caras en 100 lanzamientos arreglados usando rbinom(1, size = 100, prob = 0.7). Nota que sólo especificas la probabilidad de "éxitos" (caras) y NO la probabilidad de "fracasos" (cruces). Inténtalo ahora.
+  CorrectAnswer: rbinom(1, size = 100, prob = 0.7)
+  AnswerTests: match_call('rbinom(1, size = 100, prob = 0.7)')
+  Hint: Llama a rbinom() con n = 1, size = 100, y prob = 0.7
+
+- Class: cmd_question
+  Output: Equivalentemente, si queremos ver todos los 0s y 1s podemos pedir 100 observaciones, cada una de tamaño 1, con probabilidad de éxito de 0.7. Inténtalo, asignando el resultado a una nueva variable llamada flips2.
+  CorrectAnswer: flips2 <- rbinom(100, size = 1, prob = 0.7)
+  AnswerTests: match_call('flips2 <- rbinom(100, size = 1, prob = 0.7)')
+  Hint: Llama a rbinom() con n = 100, size = 1, y prob = 0.7 y asigna el resultado a flips2
+
+- Class: cmd_question
+  Output: Visualiza los contenidos de flips2.
+  CorrectAnswer: flips2
+  AnswerTests: omnitest('flips2')
+  Hint: Tipea flips2 para visualizar sus contenidos
+
+- Class: cmd_question
+  Output: Ahora usa sum() para contar el número de 1s (caras) en flips2. ¡Debería ser más o menos 70!
+  CorrectAnswer: sum(flips2)
+  AnswerTests: omnitest('sum(flips2)')
+  Hint: Usa sum(flips2) para contar el número de 1s
+
+- Class: cmd_question
+  Output: Al igual que con rbinom(), podemos usar R para simular números aleatorios a partir de cualquiera de las otras distribuciones de probabilidad. Obtén la documentación para rnorm() ahora.
+  CorrectAnswer: ?rnorm
+  AnswerTests: omnitest('?rnorm')
+  Hint: Tipea ?rnorm para visualizar su archivo de ayuda
+
+- Class: cmd_question
+  Output: La distribución estándar normal tiene media de 0 y desviación estándar de 1. Como puedes ver en la sección "Usage" de la documentación, el valor por defecto para los argumentos "mean" y "sd" en rnorm() son 0 y 1, respectivamente. Por lo tanto, rnorm(10) generará 10 números aleatorios a partir de una distribución estándar normal. Inténtalo.
+  CorrectAnswer: rnorm(10)
+  AnswerTests: omnitest('rnorm(10)')
+  Hint: Usa rnorm(10) para general 10 números aleatorios a partir de una distribución estándar normal
+
+- Class: cmd_question
+  Output: Haz lo mismo, excepto para una media de 100 y una desviación estandar de 25.
+  CorrectAnswer: rnorm(10, 100, 25)
+  AnswerTests: match_call('rnorm(10, 100, 25)')
+  Hint: Usa rnorm(10, mean = 100, sd = 25) para general 10 números aleatorios a partir de una distribución normal con una media de 100 y una desviación estándar de 25
+
+- Class: text
+  Output: Finalmente, ¿qué si queremos simular 100 *grupos* de números aleatorios, cada uno conteniendo 5 valores generados a partir de una distribución de Poisson con media de 10? Empecemos con un grupo de 5 números, luego te mostraré cómo repetir la operación 100 veces de una manera conveniente y compacta.
+
+- Class: cmd_question
+  Output: Genera 5 valores aleatorios a partir de una distribución de Poisson con media de 10. Revisa la documentación para rpois() si necesitas ayuda.
+  CorrectAnswer: rpois(5, 10)
+  AnswerTests: match_call('rpois(5, 10)')
+  Hint: Usa rpois(5, 10) para general 5 números aleatorios a partir de una distribución de Poisson con media de 10.
+
+- Class: cmd_question
+  Output: Ahora usa replicate(100, rpois(5, 10)) para llevar a cabo esta operación 100 veces. Almacena el resultado en una nueva variable llamada my_pois.
+  CorrectAnswer: my_pois <- replicate(100, rpois(5, 10))
+  AnswerTests: match_call('my_pois <- replicate(100, rpois(5, 10))')
+  Hint: my_pois <- replicate(100, rpois(5, 10)) repetirá la operación 100 veces y almacenará el resultado
+
+- Class: cmd_question
+  Output: Hecha un vistazo a los contenidos de my_pois.
+  CorrectAnswer: my_pois
+  AnswerTests: omnitest('my_pois')
+  Hint: Imprime los contenidos de my_pois en la consola
+
+- Class: cmd_question
+  Output: replicate() ha creado una matriz, cada columna de la cual contiene 5 números aleatorios generados a partir de una distribución de Poisson con media de 10. Ahora podemos hallar la media de cada columna en my_pois usando la función colMeans(). Almacena el resultado en una variable llamda cm.
+  CorrectAnswer: cm <- colMeans(my_pois)
+  AnswerTests: omnitest('cm <- colMeans(my_pois)')
+  Hint: Usa cm <- colMeans(my_pois) para crear un vector de columnas de las medias, almacenando el resultado en cm
+
+- Class: cmd_question
+  Output: Y hechemos un vistazo a la distribución de las medias de nuestras columnas ploteando un histograma con hist(cm).
+  CorrectAnswer: hist(cm)
+  AnswerTests: omnitest('hist(cm)')
+  Hint: hist(cm) te dará un histograma de las medias de las columnas
+
+- Class: text
+  Output: Parece que las medias de nuestras columnas presentan una distribución casi normal, ¿verdad? Ese es el Teorema del Límite Central en acción, ¡pero esa es una lección para otro día!
+
+- Class: text
+  Output: Todas las distribuciones estándar de probabilidad están incluidas en R, incluyendo las distribuciones exponencial (rexp()), chi-cuadrado (rchisq()), gamma (rgamma()), ... Bueno, ves el patrón.
+
+- Class: text
+  Output: La simulación es prácticamente un campo de especialización por su cuenta y únicamente hemos tocado la superficie de lo que es posible. Te aliento a que explores estas y otras funciones por tu cuenta.
