@@ -1,0 +1,196 @@
+- Class: meta
+  Course: Programación en R
+  Lesson: Evaluación del Curso
+  Author: Alcides Chaux, M.D.
+  Type:
+  Organization:
+  Version: 1.0.0
+
+- Class: text
+  Output: En esta lección evaluaremos los conocimientos y habilidades adquiridas durante el desarrollo de este Curso. Una vez que finalices la lección exitosamente podrás informar a tu Instructor que has completado el Curso. Puedes intentar esta lección de evaluación cuantas veces quieras, pero envía sólo una vez la notificación a tu Instructor.
+
+- Class: text
+  Output: Recuerda que tu Instructor puede solicitar información adicional o que envíes una captura de pantalla ("screenshot") de R/RStudio al finalizar el Curso como medio de verificación.
+
+- Class: text
+  Output: ¡Empecemos entonces con la evaluación y que la Fuerza te acompañe!
+
+- Class: cmd_question
+  Output: Halla la raíz cuadrada de x + 2 y asigna el resultado a una nueva variable llamada "mi_raiz".
+  CorrectAnswer: mi_raiz <- sqrt(x + 2)
+  AnswerTests: omnitest(correctExpr='mi_raiz <- sqrt(x + 2)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Bloques básicos de construcción"
+
+- Class: cmd_question
+  Output: Crea un vector numérico que contenga los números 1 a 15 y asigna el resultado a una variable llamada "mi_vector".
+  CorrectAnswer: mi_vector <- c(1:15)
+  AnswerTests: omnitest(correctExpr='mi_vector <- c(1:15)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Bloques básicos de construcción"
+
+- Class: cmd_question
+  Output: Lista todos los objetos contenidos en tu espacio de trabajo.
+  CorrectAnswer: ls()
+  AnswerTests: omnitest(correctExpr='ls()')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Espacio de trabajo y archivos"
+
+- Class: cmd_question
+  Output: Crea un directorio en el directorio de trabajo actual llamado "directorio_prueba".
+  CorrectAnswer: dir.create("directorio_prueba")
+  AnswerTests: omnitest(correctExpr='dir.create("directorio_prueba")')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Espacio de trabajo y archivos"
+
+- Class: cmd_question
+  Output: Obtén la fecha actual del sistema y asigna el valor a una variable llamada "hoy"
+  CorrectAnswer: hoy <- Sys.Date()
+  AnswerTests: omnitest(correctExpr='hoy <- Sys.Date()')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Fechas y horarios"
+
+- Class: cmd_question
+  Output: Indica qué comando en R nos daría el día de la semana que corresponde a la variable "hoy".
+  CorrectAnswer: weekdays(hoy)
+  AnswerTests: omnitest(correctExpr='weekdays(hoy)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Fechas y horarios"
+
+- Class: cmd_question
+  Output: He creado una variable llamada "y" conteniendo 100 números seleccionados al azar a partir de una distribución estándar normal. Crea un gráfico de cajas para esta variable.
+  CorrectAnswer: boxplot(y)
+  AnswerTests: omnitest(correctExpr='boxplot(y)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Gráficos de base"
+
+- Class: cmd_question
+  Output: Crea un histograma que muestre la distribución del cuadrado de la variable "y".
+  CorrectAnswer: hist(y^2)
+  AnswerTests: omnitest(correctExpr='hist(y^2)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Gráficos de base"
+
+- Class: cmd_question
+  Output: He cargado en la memoria el conjunto de datos "cars" que se incluye con R. Indica qué comando utilizarías para aplicar la función mean() a cada elemento de "cars" de modo a obtener una lista de la misma longitud que la original. No te preocupes en almacenar el resultado en una variable.
+  CorrectAnswer: lapply(cars, mean)
+  AnswerTests: omnitest(correctExpr='lapply(cars, mean)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "lapply y sapply"
+
+- Class: cmd_question
+  Output: Aplica la función median() al conjunto de datos "cars" de modo a obtener un resultado simplificado (v.g., un vector numérico) y asigna el resultado a una variable llamada "cars_median".
+  CorrectAnswer: cars_median <- sapply(cars, median)
+  AnswerTests: omnitest(correctExpr='cars_median <- sapply(cars, median)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "lapply y sapply"
+
+- Class: cmd_question
+  Output: Indica el comando en R que usarías para averiguar las dimensiones del conjunto de datos "cars".
+  CorrectAnswer: dim(cars)
+  AnswerTests: omnitest(correctExpr='dim(cars)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Matrices y marcos de datos"
+
+- Class: cmd_question
+  Output: Crea una matriz de datos que contenga los números 1 al 50 y que esté conformada por 5 columnas y 10 filas. Asigna el resultado a una variable llamada "mi_matriz".
+  CorrectAnswer: mi_matriz <- matrix(1:50, nrow = 10, ncol = 5)
+  AnswerTests: omnitest(correctExpr='mi_matriz <- matrix(1:50, nrow = 10, ncol = 5)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Matrices y marcos de datos"
+
+- Class: cmd_question
+  Output: Indica qué comando usarías en R para mostrar las primeras 10 filas del conjunto de datos "cars".
+  CorrectAnswer: head(cars, 10)
+  AnswerTests: omnitest(correctExpr='head(cars, 10)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Mirando a los datos"
+
+- Class: cmd_question
+  Output: Indica qué comando usarías en R para conocer mejor la estructura del conjunto de datos "cars".
+  CorrectAnswer: str(cars)
+  AnswerTests: omnitest(correctExpr='str(cars)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Mirando a los datos"
+
+- Class: cmd_question
+  Output: Escribe una expresión lógica que evalúe si "rnorm(100, 0, 1)" no es igual a "rnorm(10, 10, 1)".
+  CorrectAnswer: rnorm(100, 0, 1) != rnorm(10, 10, 1)
+  AnswerTests: omnitest(correctExpr='rnorm(100, 0, 1) != rnorm(10, 10, 1)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Operaciones lógicas"
+
+- Class: cmd_question
+  Output: Escribe una expresión lógica que evalúe si "rnorm(100, 0, 1)" no es igual a "rnorm(10, 10, 1)".
+  CorrectAnswer: rnorm(100, 0, 1) != rnorm(10, 10, 1)
+  AnswerTests: omnitest(correctExpr='rnorm(100, 0, 1) != rnorm(10, 10, 1)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Operaciones lógicas"
+
+- Class: mult_question
+  Output: ¿Cuál de las siguientes expresiones se evalua como TRUE?
+  CorrectAnswer: 7 >= 8 || 50 <= 50.5
+  AnswerChoices: 7 >= 8 || 50 <= 50.5; FALSE && 6 >= 6; TRUE && 6 <= 4 || 9 < 4
+  AnswerTests: omnitest(correctVal='7 >= 8 || 50 <= 50.5')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Operaciones lógicas"
+
+- Class: cmd_question
+  Output: Crea un vector conteniendo 20 números del 1 al 10 y almacena el resultado en una variable llamada "mi_num".
+  CorrectAnswer: mi_num <- seq(1, 10, length = 20)
+  AnswerTests: omnitest(correctExpr='mi_num <- seq(1, 10, length = 20)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Secuencias de números"
+
+- Class: cmd_question
+  Output: Crea un vector que contenga 10 repeticiones de 1s y 5s y almacena el resultado en una variable llamda "mi_rep"
+  CorrectAnswer: mi_rep <- rep(c(1, 5), times = 10)
+  AnswerTests: omnitest(correctExpr='mi_rep <- rep(c(1, 5), times = 10)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Secuencias de números"
+
+- Class: cmd_question
+  Output: Simula la selección aleatoria de 4 letras del alfabeto inglés, SIN reemplazo.
+  CorrectAnswer: sample(LETTERS, 4)
+  AnswerTests: match_call('sample(LETTERS, 4)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Simulación"
+
+- Class: cmd_question
+  Output: Simula los resultados obtenidos en 50 lanzamientos de un dado de 6 lados y almacena estos resultados en una variable llamada "dados"
+  CorrectAnswer: dados <- sample(1:6, 50, replace = TRUE)
+  AnswerTests: match_call('dados <- sample(1:6, 50, replace = TRUE)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Simulación"
+
+- Class: cmd_question
+  Output: Selecciona los primeros 50 valores de la variable "y" y almacena el resultado en una variable llamada "y50".
+  CorrectAnswer: y50 <- y[1:50]
+  AnswerTests: omnitest(correctExpr='y50 <- y[1:50]')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Subagrupando vectores"
+
+- Class: cmd_question
+  Output: Selecciona todos los valores positivos de la variable "y". No te preocupes en almacenar el resultado.
+  CorrectAnswer: y[y > 0]
+  AnswerTests: omnitest(correctExpr='y[y > 0]')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Subagrupando vectores"
+
+- Class: cmd_question
+  Output: He creado un vector "z" conteniendo 20 elementos, algunos de los cuales corresponden a valores ausentes. Indica el comando en R que usarías para averiguar el número total de valores ausentes en "z".
+  CorrectAnswer: sum(is.na(z))
+  AnswerTests: omnitest(correctExpr='sum(is.na(z))')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Valores ausentes"
+
+- Class: mult_question
+  Output: ¿Cuál de las siguientes operaciones da infinito como resultado?
+  CorrectAnswer: 1/0
+  AnswerChoices: 1/0; 0/1; 1/1; 0/0
+  AnswerTests: omnitest(correctVal='1/0')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Valores ausentes"
+
+- Class: cmd_question
+  Output: He cargado el conjunto de datos "mtcars" en la memoria de R. Indica qué comando utilizarías para aplicar la función mean() sobre la variable "mpg" (*m*illas *p*or *g*alón) basándote en el valor de "am" (transmisión *a*utomática vs *m*anual). No te preocupes en almacenar el resultado en una variable.
+  CorrectAnswer: tapply(mtcars$mpg, mtcars$am, mean)
+  AnswerTests: omnitest(correctExpr='tapply(mtcars$mpg, mtcars$am, mean)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "vapply y tapply"
+
+- Class: cmd_question
+  Output: Crea un vector de caracteres que consista en la combinación de las 26 letras del alfabeto inglés con su respectivos números de orden, separados por un guión simple (v.g., A-1, B-2, C-3). No te preocupes en asignar el resultado a una variable.
+  CorrectAnswer: paste(LETTERS, 1:26, sep = "-")
+  AnswerTests: omnitest(correctExpr='paste(LETTERS, 1:26, sep = "-")')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Vectores"
+
+- Class: cmd_question
+  Output: Indica qué comando en R utilizarías para evaluar si la variable "y" es menor que el logaritmo natural de "x". Almacena el resultado en una nueva variable llamada "log_xy".
+  CorrectAnswer: log_xy <- y > log(x)
+  AnswerTests: omnitest(correctExpr='log_xy <- y > log(x)')
+  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Vectores"
+
+- Class: text
+  Output: ¡Felicidades! Has respondido exitosamente todas las preguntas de esta lección de evaluación. De ahora en más ya puedes ir aprendiendo R por tu cuenta. ¡No olvides que la práctica hace al maestro!
+
+- Class: mult_question
+  Output: ¿Quieres informar a tu Instructor que has completado exitosamente esta lección de evaluación?
+  CorrectAnswer: NULL
+  AnswerChoices: Sí; No
+  AnswerTests: notify()
+  Hint: NULL
