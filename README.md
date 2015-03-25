@@ -54,9 +54,7 @@ Este curso de "Programación en R" contiene las siguientes lecciones:
 11. Mirando a los datos
 12. Simulación
 13. Fechas y horarios
-14. Básico de gráficos*
-
-\* Estas lecciones se encuentran en preparación.
+14. Gráficos de base
 
 ## Problemas conocidos
 Aquellos usuarios de Microsoft Windows podrían observar símbolos inusuales reemplazando los caracteres acentuados. Esto es porque Windows utiliza por defecto un sistema de codificación ([Windows 1252](http://es.wikipedia.org/wiki/Windows-1252)) distinto al de Linux ([UTF-8](http://es.wikipedia.org/wiki/UTF-8)). Esto se puede resolver fácilmente desde RStudio, cambiando el sistema de codificación para que los caracteres acentuados se muestren correctamente.

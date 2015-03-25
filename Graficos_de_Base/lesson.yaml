@@ -1,0 +1,197 @@
+- Class: meta
+  Course: Programación en R
+  Lesson: Gráficos de Base
+  Author: David Kane
+  Traductor: Alcides Chaux, M.D.
+  Type:
+  Organization:
+  Version: 0.1.1
+
+- Class: text
+  Output: Una de las grandes fortalezas de R, en comparación con otros lenguajes de programación, es la facilidad con la cual podemos crear gráficos con calidad de publicación. En esta lección, aprenderás acerca de los gráficos de base en R. No cubriremos las partes más avanzadas de los gráficos en R tales como lattice, ggplot2 y ggvis.
+
+- Class: cmd_question
+  Output: Carga el marco de datos cars incluido en R con data(cars).
+  CorrectAnswer: data(cars)
+  AnswerTests: omnitest(correctExpr='data(cars)')
+  Hint: Tipea data(cars) para cargar los datos
+
+- Class: text
+  Output: Para fijas los conceptos trabajaremos con marcos de datos sencillos. Nuestro objetivo principal es el de presentarte las distintas funciones de ploteo y sus argumentos. Todos los resultados serán más interesantes con conjuntos de datos más grandes y complejos.
+
+- Class: cmd_question
+  Output: Obtén la página de ayuda para cars.
+  CorrectAnswer: ?cars
+  AnswerTests: any_of_exprs('?cars', 'help(cars)', 'help("plot")')
+  Hint: Tipea ?cars o help(cars) para visualizar la página de ayuda con detalles acerca del marco de datos cars
+
+- Class: text
+  Output: Como puedes ver en la página de ayuda, el conjunto de datos cars tiene solamente dos variables, velocidad y distancia de frenado. Nota que los datos son de 1920s.
+
+- Class: cmd_question
+  Output: Ejecuta head() en el conjunto de datos cars.
+  CorrectAnswer: head(cars)
+  AnswerTests: omnitest(correctExpr='head(cars)')
+  Hint: Tipea head(cars) para ver el comienzo del marco de datos cars
+
+- Class: text
+  Output: Antes de plotear, siempre es recomendable hacerse de una idea acerca de los datos. Los comandos claves en R para esto incluyen dim(), names(), head(), tail() y summary().
+
+- Class: cmd_question
+  Output: Ejecuta el comando plot() en el marco de datos cars.
+  CorrectAnswer: plot(cars)
+  AnswerTests: omnitest(correctExpr='plot(cars)')
+  Hint: Tipea plot(cars) para crear un plot del marco de datos cars
+
+- Class: text
+  Output: Como siempre, R se esfuerza mucho para darte algo que tenga sentido teniendo en cuenta la información que le has proporcionado. Primero, R nota que el marco de datos que le has dado tiene sólo dos columnas, así que asume que quieres plotear una columna contra la otra.
+
+- Class: text
+  Output: Segundo, dado que no hemos puesto etiquetas para ninguno de los ejes, R usa los nombres de las columnas. Tercero, R crea marcas en los ejes usando números redondeados y los etiquea acordemente. Cuarto, R usa los otros valores por defecto que están en plot().
+
+- Class: text
+  Output: Pasaremos un tiempo explorando la función plot(), pero muchos de los tópicos discutidos aquí se aplicarán a otras funciones gráficas de R. Nota que la palabra "plot" es una abreviación de "scatterplot", o sea, "gráfico de dispersión".
+
+- Class: cmd_question
+  Output: Revisa la página de ayuda de plot().
+  CorrectAnswer: ?plot
+  AnswerTests: any_of_exprs('?plot', 'help(plot)')
+  Hint: Tipea ?plot o help(plot) para visualizar la página de ayuda de plot()
+
+- Class: text
+  Output: La página de ayuda de plot() resalta los diferentes argumentos que la función puede tomar. Los dos argumentos más importantes son x e y, las variables que serán ploteadas. Para el siguiente grupo de preguntas, incluye los nombres de los argumentos en tus respuestas. Esto es, no tipees plot(cars$speed, cars$dist), a pesar de que funcionará. En vez, usa plot(x = cars$speed, y = cars$dist).
+
+- Class: cmd_question
+  Output: Usa el comando plot() para mostrar la velocidad ("speed") en el eje x y la distancia de frenado ("dist") en el eje y del marco de datos cars. Usa la forma del comando plot() en la cual los vectores se pasan explícitamente como argumentos para x e y.
+  CorrectAnswer: plot(x = cars$speed, y = cars$dist)
+  AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist)')
+  Hint: Tipea plot(x = cars$speed, y = cars$dist) para crear el plot
+
+- Class: text
+  Output: Nota que esto produce una respuesta ligeramente diferente a plot(cars). En este caso, R no está seguro de qué es lo que quieres usar como etiquetas en los ejes, así que simplemente usa los argumentos que pasaste, incluyendo el nombre del marco de datos y el signo de dólar.
+
+- Class: text
+  Output: Nota que hay otras maneras de llamar al comando plot(), i.e., usando la interfaz de "fórmula". Por ejemplo, obtenemos un plot similar al de arriba con plot(dist ~ speed, cars). Sin embargo, esperaremos hasta más adelante en la lección antes de usar la interfaz de fórmula.
+
+- Class: cmd_question
+  Output: Usa el comando plot() para mostrar la distancia de frenado en el eje x y la velocidad en el eje y usando el marco de datos cars. Esto es lo opuesto a lo que hicimos anteriormente.
+  CorrectAnswer: plot(x = cars$dist, y = cars$speed)
+  AnswerTests: omnitest(correctExpr='plot(x = cars$dist, y = cars$speed)')
+  Hint: Tipea plot(x = cars$dist, y = cars$speed) para crear el plot
+
+- Class: text
+  Output: Probablemente tenga más sentido que la velocidad vaya en el eje x dado que la distancia de frenado es una función de la velocidad más que a la inversa. Asi que, para el resto de las preguntas en esta parte de la lección, asigna siempre los argumentos en concordancia con lo dicho.
+
+- Class: text
+  Output: De hecho, puedes asumir que las respuestas para las siguientes preguntas son todas de la forma plot(x = cars$speed, y = cars$dist, ...) pero con varios argumentos usandos en lugar de ...
+
+- Class: cmd_question
+  Output: Recrea el plot con la etiqueta del eje x puesta como "Velocidad".
+  CorrectAnswer: plot(x = cars$speed, y = cars$dist, xlab = "Velocidad")
+  AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist, xlab = "Velocidad")')
+  Hint: Tipea plot(x = cars$speed, y = cars$dist, xlab = "Velocidad") para crear el plot
+
+- Class: cmd_question
+  Output: Recrea el plot con la etiqueta del eje y puesta como "Distancia Frenado".
+  CorrectAnswer: plot(x = cars$speed, y = cars$dist, ylab = "Distancia Frenado")
+  AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist, ylab = "Distancia Frenado")')
+  Hint: Tipea plot(x = cars$speed, y = cars$dist, ylab = "Distancia Frenado") para crear el plot
+
+- Class: cmd_question
+  Output: Recrea el plot con "Velocidad" y "Distancia Frenado" como las etiquetas de los ejes.
+  CorrectAnswer: plot(x = cars$speed, y = cars$dist, xlab = "Velocidad", ylab = "Distancia Frenado")
+  AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist, xlab = "Velocidad", ylab = "Distancia Frenado")')
+  Hint: Tipea plot(x = cars$speed, y = cars$dist, xlab = "Velocidad", ylab = "Distancia Frenado") para crear el plot
+
+- Class: text
+  Output: La razón por la cual plot(cars) funcionó al principio de la lección fue porque R fue lo suficientemente inteligente como para saber que el primer elemento (i.e., la primera columna) en cars debería ser asignada al argumento x y el segundo elemento al argumento y. Para ahorrar en tipeado, el siguiente grupo de respuestas serán todas en la forma plot(cars, ...) con varios argumentos agregados.
+
+- Class: text
+  Output: Por cada pregunta, incluiremos solamente un argumento adicional a la vez. Por supuesto, puedes pasar más de un argumento cuando trabajes con un proyecto real.
+
+- Class: cmd_question
+  Output: Plotea cars con el título principal de "Mi Plot". Nota que el argumento para el título principal es "main", no "title".
+  CorrectAnswer: plot(cars, main = "Mi Plot")
+  AnswerTests: omnitest(correctExpr='plot(cars, main = "Mi Plot")')
+  Hint: Tipea plot(cars, main = "Mi Plot") para crear el plot
+
+- Class: cmd_question
+  Output: Plotea cars con el subtítulo "Mi Subtítulo del Plot".
+  CorrectAnswer: plot(cars, sub = "Mi Subtítulo del Plot")
+  AnswerTests: omnitest(correctExpr='plot(cars, sub = "Mi Subtítulo del Plot")')
+  Hint: Tipea plot(cars, sub = "Mi Subtítulo del Plot") para crear el plot
+
+- Class: text
+  Output: La página de ayuda de plot (?plot) sólo cubre un número pequeño de los muchos argumentos que pueden ser pasados a plot() y otras funciones gráficas. Para empezar a explorar las muchas otras opciones, mira a ?par. Veamos algunas de las más comúnmente usadas. Continua usando plot(cars, ...) como la respuseta base a estas preguntas.
+
+- Class: cmd_question
+  Output: Plotea cars con un color rojo (usa col = 2 para obtener este efecto).
+  CorrectAnswer: plot(cars, col = 2)
+  AnswerTests: omnitest(correctExpr='plot(cars, col = 2)')
+  Hint: Tipea plot(cars, col = 2) para crear el plot
+
+- Class: cmd_question
+  Output: Plotea cars mientras limitas el eje x entre los valores 10 a 15 (usa xlim = c(10, 15) para obtener este efecto).
+  CorrectAnswer: plot(cars, xlim = c(10, 15))
+  AnswerTests: omnitest(correctExpr='plot(cars, xlim = c(10, 15))')
+  Hint: Tipea plot(cars, xlim = c(10, 15)) para crear el plot
+
+- Class: text
+  Output: También puedes cambiar la forma de los símbolos en el plot. La página de ayuda para puntos (?points) provee todos los detalles.
+
+- Class: cmd_question
+  Output: Plotea cars usando triángulos (usa pch = 2 para obtener este efecto).
+  CorrectAnswer: plot(cars, pch = 2)
+  AnswerTests: omnitest(correctExpr='plot(cars, pch = 2)')
+  Hint: Tipea plot(cars, pch = 2) para crear el plot
+
+- Class: text
+  Output: Argumentos tales como "col" y "pch" pueden no parecer muy intuitivos. ¡Y esto es porque no los son! Así que la mayoría/mucha gente usa otros paquetes, como lattice y ggplot2, para crear sus gráficos en R.
+
+- Class: text
+  Output: Es, sin embargo, útil tener una introducción a los gráficos de base debido a que muchas de las expresiones en lattice y ggplot2 están modeladas a partir de los mismos.
+
+- Class: text
+  Output: Veamos ahora algunas otras funciones en los gráficos de base que pueden ser útiles, empezando con los gráficos de cajas ("boxplots").
+
+- Class: cmd_question
+  Output: Carga el conjunto de datos mtcars.
+  CorrectAnswer: data(mtcars)
+  AnswerTests: omnitest(correctExpr='data(mtcars)')
+  Hint: Tipea data(mtcars) para cargar los datos
+
+- Class: text
+  Output: Cada vez que cargues un nuevo marco de datos, deberías explorarlo antes de usarlo. En el medio de una sesión de swirl, simplemente tipea play(). Esto suspende temporalmente la lección (sin que pierdas el trabajo que ya has hecho) y te permite introducir comandos tales como dim(mtcars) y head(mtcars). Una vez que has examinado los datos, simplemente tipea nxt() y la lección comenzará nuevamente desde dónde la habías dejado.
+
+- Class: cmd_question
+  Output: Mira la página de ayuda para boxplot().
+  CorrectAnswer: ?boxplot
+  AnswerTests: any_of_exprs('?boxplot', 'help(boxplot)')
+  Hint: Tipea ?boxplot o help(boxplot) para visualizar la página de ayuda con detalles acerca de los gráficos de cajas.
+
+- Class: text
+  Output: En vez de añadir columnas de datos directamente como argumentos de entrada, como hicimos con plot(), con frecuencia es más práctico pasar el marco de datos por completo. Esto es lo que el argumento "data" permite en boxplot().
+
+- Class: text
+  Output: boxplot(), como muchas funciones en R, también toma un argumento de "fórmula", generalmente una expresión con una tilde ("~") que indica la relación entre las variables de entrada. Esto te permite ingresar algo como mpg ~ cyl para plotear la relación entre cyl (número de cilindros) en el eje x y mpg (millas por galón) en el eje y.
+
+- Class: cmd_question
+  Output: Usa boxplot() con formula = mpg ~ cyl y data = mtcars para crear un gráfico de cajas.
+  CorrectAnswer: boxplot(formula = mpg ~ cyl, data = mtcars)
+  AnswerTests: omnitest(correctExpr='boxplot(formula = mpg ~ cyl, data = mtcars)')
+  Hint: Tipea boxplot(formula = mpg ~ cyl, data = mtcars) para crear el plot
+
+- Class: text
+  Output: El plot muestra que mpg es mucho menor para autos con más cilindros. Nota que podemos usar el mismo grupo de argumentos que hemos explorado con plot() más arriba para agregar etiquetas a los ejes, títulos y sucesivamente.
+
+- Class: text
+  Output: Cuando miramos a una variable única, los histogramas son una herramienta útil. La función asociada en R es hist(). Al igual que plot(), hist() se usa mejor cuando se le pasa un vector simple.
+
+- Class: cmd_question
+  Output: Usa hist() con el vector mtcars$mpg para crear un histograma.
+  CorrectAnswer: hist(mtcars$mpg)
+  AnswerTests: any_of_exprs('hist(mtcars$mpg)', 'hist(x = mtcars$mpg)')
+  Hint: Tipea hist(mtcars$mpg) para crear el plot
+
+- Class: text
+  Output: En esta lección, has aprendido cómo trabajar con los gráficos de base en R. El mejor lugar para ir desde aquí es estudiar el paquete ggplot2. Si quieres explorar otros elementos de los gráficos de base, esta página web en inglés (http://www.ling.upenn.edu/~joseff/rstudy/week4.html) provee una visión de conjunto útil.
