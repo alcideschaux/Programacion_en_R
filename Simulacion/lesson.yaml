@@ -62,7 +62,7 @@
   Output: Ahora, supone que queremos simular 100 lanzamientos de una moneda de 2 caras alterada. Esta moneda en particular tiene una probabilidad de 0.3 de caer "cruz" y 0.7 de probabilidad de caer "cara".
 
 - Class: cmd_question
-  Output: Asignemos el valor 0 para cruz y el valor 1 para cara. Usa sample() para obtener una muestra de tamaño 100 del vector c(0,1), con reemplazo. dado que la moneda está alterada, debemos asignar probabilidades específicas a los valores 0 (cruz) y 1 (cara) con un cuarto argumento, prob = c(0.3, 0.7). Asigna el resultado a una nueva variable llamada flips.
+  Output: Asignemos el valor 0 para cruz y el valor 1 para cara. Usa sample() para obtener una muestra de tamaño 100 del vector c(0,1), con reemplazo. Dado que la moneda está alterada, debemos asignar probabilidades específicas a los valores 0 (cruz) y 1 (cara) con un cuarto argumento, prob = c(0.3, 0.7). Asigna el resultado a una nueva variable llamada flips.
   CorrectAnswer: flips <- sample(c(0,1), 100, replace = TRUE, prob = c(0.3, 0.7))
   AnswerTests: match_call('flips <- sample(c(0,1), 100, replace = TRUE, prob = c(0.3, 0.7))')
   Hint: El siguiente comando produce 100 lanzamientos de una moneda alterada y asigna el resultado, flips <- sample(c(0,1), 100, replace = TRUE, prob = c(0.3, 0.7))

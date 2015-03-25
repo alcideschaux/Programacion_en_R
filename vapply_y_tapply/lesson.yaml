@@ -35,7 +35,7 @@
   Output: Mientras que sapply() intenta "adivinar" el formato correcto del resultado, vapply() te permite especificarlo explícitamente. Si el resultado no se corresponde con el formato que especificaste, vapply() tirará un error, haciendo que pare la operación. Esto puede prevener problemas significativos en tu código que pueden ser causados por obtener retornos inesperados a partir de sapply().
 
 - Class: cmd_question
-  Output: Prueba vapply(flags, unique, numeric(1)), lo que dice que esperar que cada elemento del resultado sea un vector numérico de longitud 1. Dado que realmente esto NO es el caso, OBTENDRÝS UN ERROR. Una vez que obtengas el error, tipea ok() para continuar con la próxima pregunta.
+  Output: Prueba vapply(flags, unique, numeric(1)), lo que dice que esperar que cada elemento del resultado sea un vector numérico de longitud 1. Dado que realmente esto NO es el caso, OBTENDRÁS UN ERROR. Una vez que obtengas el error, tipea ok() para continuar con la próxima pregunta.
   CorrectAnswer: ok()
   AnswerTests: omnitest(correctExpr="ok()")
   Hint: Tipea vapply(flags, unique, numeric(1)), luego tipea ok() para continuar con la próxima pregunta
@@ -74,7 +74,7 @@
   Hint: Usa table(flags$landmass) para ver cuántas banderas/países caen dentro de cada grupo
 
 - Class: cmd_question
-  Output: La variable 'animate' en nuestro conjunto de datos toma el alor 1 si la bandera del país contiene una imagen animada (e.g., un águila, un árbol, una mano humana) y 0 en caso contrario. Usa table(flags$animate) para ver cuántas banderas contienen una imagen animada.
+  Output: La variable 'animate' en nuestro conjunto de datos toma el valor 1 si la bandera del país contiene una imagen animada (e.g., un águila, un árbol, una mano humana) y 0 en caso contrario. Usa table(flags$animate) para ver cuántas banderas contienen una imagen animada.
   CorrectAnswer: table(flags$animate)
   AnswerTests: omnitest(correctExpr="table(flags$animate)")
   Hint: Usa table(flags$animate) para ver cuántas banderas contienen una imagen animada.

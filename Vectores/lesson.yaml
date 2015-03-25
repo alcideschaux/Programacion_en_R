@@ -20,7 +20,7 @@
   Output: Los vectores lógicos pueden contener los valores TRUE ("verdadero"), FALSE ("falso"), y NA (por "not available", es decir, no disponible). Estos valores son generados como resultado de "condiciones" lógicas. Experimentemos con algunas condiciones simples.
 
 - Class: cmd_question
-  Output: Primero, creemos un vector numérico num_vect que contenga los valorse 0.5, 55, -10, y 6.
+  Output: Primero, creemos un vector numérico num_vect que contenga los valores 0.5, 55, -10, y 6.
   CorrectAnswer: num_vect <- c(0.5, 55, -10, 6)
   AnswerTests: omnitest(correctExpr='num_vect <- c(0.5, 55, -10, 6)')
   Hint: Recuerda que la función c() se usa para crear un vector. Si has olvidado cómo se usa, tipea ?c para acceder al archivo de ayuda. No olvides asignar el resultado a una nueva variable llamada num_vect.
@@ -126,7 +126,7 @@
   Output: Parece que estamos perdiéndonos de algo ... ¡Ah, sí! ¡Tu nombre!
 
 - Class: cmd_question
-  Output: 'Para agregar (o "concatenar") tu nombre al final de my_char usa la función c() de la siguiente manera: c(my_char, "tu_nombre"). Colona tu nombre en dobles comillas donde he puedo "tu_nombre". Inténtalo ahora, guardando el resultado en una nueva variable llamada my_name.'
+  Output: 'Para agregar (o "concatenar") tu nombre al final de my_char usa la función c() de la siguiente manera: c(my_char, "tu_nombre"). Coloca tu nombre en dobles comillas donde he puesto "tu_nombre". Inténtalo ahora, guardando el resultado en una nueva variable llamada my_name.'
   CorrectAnswer: my_name <- c(my_char, "Swirl")
   AnswerTests: var_is_a("character", "my_name"); expr_uses_func("c"); expr_creates_var("my_name"); val_has_length(4)
   Hint: Agrega tu nombre al final del vector my_char usando la función c(). Asegúrate de asignar el resulado a una nueva variable llamada my_name. Si tu nombre fuese "Swirl" entonces tipearías my_name <- c(my_char, "Swirl").
@@ -144,7 +144,7 @@
   Hint: Usa paste(my_name, collapse = " ") para unir todas las cuatro palabras juntas, separadas por espaciones simples.
 
 - Class: text
-  Output: En este ejemplo, usamos la función paste() para colapsar los elementos de un vector de caracterres simple. Se puede usar paste() también para unir los elementos de múltiples vectores de caracteres.
+  Output: En este ejemplo, usamos la función paste() para colapsar los elementos de un vector de caracteres simple. Se puede usar paste() también para unir los elementos de múltiples vectores de caracteres.
 
 - Class: cmd_question
   Output: En el caso más simple, podemos unir dos vectores de caracteres que tienen cada uno una longitud 1 (i.e., unir dos palabras). Intenta paste("¡Hola", "mundo!", sep = " "), donde el argumento `sep` le dice a R que queremos separar los elementos unidos mediante un espacio simple.
@@ -171,7 +171,7 @@
   Output: Debido a que el vector de caracteres LETTERS es más largo que el vector numérico 1:4, R simplemente recicla (o repite) 1:4 hasta que empareja la longitud de LETTERS.
 
 - Class: text
-  Output: Vale la pena también notar que el vector numérico 1:4 es "coaccinado" en un vector de caracteres mediante la función paste().
+  Output: Vale la pena también notar que el vector numérico 1:4 es "coaccionado" en un vector de caracteres mediante la función paste().
 
 - Class: text
   Output: Discutiremos sobre coerción en otra lección, pero todo lo que realmente significa es que los números 1, 2, 3, y 4 en el resulatdo de arriba ya no son números para R, sino caracteres "1", "2", "3", y "4".

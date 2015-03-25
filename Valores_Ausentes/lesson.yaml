@@ -77,7 +77,7 @@
   Output: Así que, regresemos a la tarea pendiente. Ahora que tenemos un vector, my_na, que tiene un TRUE por cada NA y un FALSE por cada valor numérico, podemos calcular el número total de NAs en nuestros datos.
 
 - Class: text
-  Output: El truco es reconocer que por debajo de la superficie, R representa TRUE como el número 1 y FALSE como el número 0. Por lo tanto, si sumamos un montón de TRUEs y FALSEs obtendremos el número toatl de TRUEs.
+  Output: El truco es reconocer que por debajo de la superficie, R representa TRUE como el número 1 y FALSE como el número 0. Por lo tanto, si sumamos un montón de TRUEs y FALSEs obtendremos el número total de TRUEs.
 
 - Class: cmd_question
   Output: Intentemos eso aquí. Llama a la función sum() en my_na para contar el número total de TRUEs en my_na, y por tanto el número total de NAs en nuestros datos. No asignes el resultado a una nueva variable.
@@ -92,7 +92,7 @@
   Hint: Imprime my_data en la consola.
 
 - Class: cmd_question
-  Output: Ahora que ya nos hemos encargado de NAs, veamos un segundo tipo de valor ausente -- NaN, que representa "not a number" ("no es un número). Para generar NaN, intenta dividir (usando una barra diagonal) 0 por 0 ahora.
+  Output: Ahora que ya nos hemos encargado de NAs, veamos un segundo tipo de valor ausente -- NaN, que representa "not a number" ("no es un número"). Para generar NaN, intenta dividir (usando una barra diagonal) 0 por 0 ahora.
   CorrectAnswer: 0/0
   AnswerTests: omnitest(correctExpr='0/0')
   Hint: Prueba 0/0.
