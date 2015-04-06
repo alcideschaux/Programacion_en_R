@@ -138,7 +138,7 @@
   Hint: Prueba el operador OR vectorizado tipeando c(TRUE, FALSE, FALSE)
 
 - Class: cmd_question
-  Output: Ahora probemos la versión no-vectorizxada del operador OR. Tipea la expresión TRUE || c(TRUE, FALSE, FALSE).
+  Output: Ahora probemos la versión no-vectorizada del operador OR. Tipea la expresión TRUE || c(TRUE, FALSE, FALSE).
   CorrectAnswer: TRUE || c(TRUE, FALSE, FALSE)
   AnswerTests: omnitest(correctExpr='TRUE || c(TRUE, FALSE, FALSE)')
   Hint: Como verás, la versión || de OR no está vectorizada. Tipea TRUE || c(TRUE, FALSE, FALSE)
@@ -215,7 +215,7 @@
   Hint: Para que xor() se evalue como TRUE, un argumento debe ser TRUE y el otro argumento debe ser FALSE
 
 - Class : cmd_question
-  Output: Pra las siguientes preguntas, vamos a necesitar crear un vector de íntegros llamado ints. Crea este vector tipeando ints <- sample(10).
+  Output: Para las siguientes preguntas, vamos a necesitar crear un vector de íntegros llamado ints. Crea este vector tipeando ints <- sample(10).
   CorrectAnswer: ints <- sample(10)
   AnswerTests: omnitest(correctExpr='ints <- sample(10)')
   Hint: Para crear un vector de 10 íntegros sin reemplazo tipea ints <- sample(10)
@@ -252,7 +252,7 @@
   Output: Al igual que la función which(), las funciones any() y all() toman vectors lógicos como argumentos. La función any() regresará TRUE si uno o más de los elementos en el vector lógico son TRUE. La función all() regresará TRUE si cada elemento en el vector lógico es TRUE.
 
 - Class : cmd_question
-  Output: Usa la función any() para ver si alguno de los elementos de ins es menor a cero.
+  Output: Usa la función any() para ver si alguno de los elementos de ints es menor a cero.
   CorrectAnswer: any(ints < 0)
   AnswerTests: omnitest(correctExpr='any(ints < 0)')
   Hint: Usa la función any() en el vector lógico producido por `ints < 0`

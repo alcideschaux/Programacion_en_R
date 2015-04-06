@@ -154,7 +154,7 @@
   Hint: file.copy("mytest2.R", "mytest3.R") funciona.
 
 - Class: text
-  Output: You now have two files in the current directory. That may not seem very interesting. But what if you were working with dozens, or millions, of individual files? In that case, being able to programatically act on many files would be absolutely necessary. Don't forget that you can, temporarily, leave the lesson by typing play() and then return by typing nxt().
+  Output: Ahora tienes dos archivos en el directorio actual. Eso puede que no parezca muy interesante. Pero qué si estuvieses trabajando con docenas, o millones, de archivos individuales? En ese caso, sería absolutamente necesario ser capaz de poder accionar "programáticamente" sobre muchos archivos al mismo tiempo. No olvides que puedes dejar la lección temporalmente tipeando play() y regresar luego a la misma tipeando nxt().
 
 - Class: cmd_question
   Output: Indica la ruta completa para el archivo "mytest3.R".

@@ -147,10 +147,10 @@
   Output: En este ejemplo, usamos la función paste() para colapsar los elementos de un vector de caracteres simple. Se puede usar paste() también para unir los elementos de múltiples vectores de caracteres.
 
 - Class: cmd_question
-  Output: En el caso más simple, podemos unir dos vectores de caracteres que tienen cada uno una longitud 1 (i.e., unir dos palabras). Intenta paste("¡Hola", "mundo!", sep = " "), donde el argumento `sep` le dice a R que queremos separar los elementos unidos mediante un espacio simple.
-  CorrectAnswer: paste("¡Hola", "mundo!", sep = " ")
-  AnswerTests: omnitest(correctExpr='paste("¡Hola", "mundo!", sep = " ")')
-  Hint: Ingresa paste("¡Hola", "mundo!", sep = " ") para unir las dos palabras "Hola" y "mundo", separadas por un espacio simple. Debe haber un único espacio entre las dobles comillas en el argumento `sep` de la función paste().
+  Output: En el caso más simple, podemos unir dos vectores de caracteres que tienen cada uno una longitud 1 (i.e., unir dos palabras). Intenta paste("Hola", "mundo!", sep = " "), donde el argumento `sep` le dice a R que queremos separar los elementos unidos mediante un espacio simple.
+  CorrectAnswer: paste("Hola", "mundo!", sep = " ")
+  AnswerTests: omnitest(correctExpr='paste("Hola", "mundo!", sep = " ")')
+  Hint: Ingresa paste("Hola", "mundo!", sep = " ") para unir las dos palabras "Hola" y "mundo", separadas por un espacio simple. Debe haber un único espacio entre las dobles comillas en el argumento `sep` de la función paste().
 
 - Class: cmd_question
   Output: Para un ejemplo ligeramente más complicado, podemos unir dos vectores, cada uno de longitud 3. Usa paste() para unir el vector de íntegros 1:3 con el vector de caracteres c("X", "Y", "Z"). Esta vez, usa sep = "" para no dejar espacio entre los elementos unidos.

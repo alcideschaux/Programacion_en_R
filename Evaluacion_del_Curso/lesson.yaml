@@ -100,13 +100,7 @@
   Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Mirando a los datos"
 
 - Class: cmd_question
-  Output: Escribe una expresión lógica que evalúe si "rnorm(100, 0, 1)" no es igual a "rnorm(10, 10, 1)".
-  CorrectAnswer: rnorm(100, 0, 1) != rnorm(10, 10, 1)
-  AnswerTests: omnitest(correctExpr='rnorm(100, 0, 1) != rnorm(10, 10, 1)')
-  Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Operaciones lógicas"
-
-- Class: cmd_question
-  Output: Escribe una expresión lógica que evalúe si "rnorm(100, 0, 1)" no es igual a "rnorm(10, 10, 1)".
+  Output: Escribe una expresión lógica que evalue si "rnorm(100, 0, 1)" no es igual a "rnorm(10, 10, 1)".
   CorrectAnswer: rnorm(100, 0, 1) != rnorm(10, 10, 1)
   AnswerTests: omnitest(correctExpr='rnorm(100, 0, 1) != rnorm(10, 10, 1)')
   Hint: Los contenidos necesarios para responder esta pregunta fueron desarrollados en la lección sobre "Operaciones lógicas"

@@ -68,7 +68,7 @@
   Hint: Obten el archivo de ayuda con ?tapply.
 
 - Class: cmd_question
-  Output: La variable 'landmass' en nuestro conjunto de datos toma valores íntegros entre 1 y 6, cada uno de los cuales representa una diferente parte del mundo. Usa table(flags$landmass) cuántas banderas/países caen dentro de cada categoría.
+  Output: La variable 'landmass' en nuestro conjunto de datos toma valores íntegros entre 1 y 6, cada uno de los cuales representa una diferente parte del mundo. Usa table(flags$landmass) para ver cuántas banderas/países caen dentro de cada categoría.
   CorrectAnswer: table(flags$landmass)
   AnswerTests: omnitest(correctExpr="table(flags$landmass)")
   Hint: Usa table(flags$landmass) para ver cuántas banderas/países caen dentro de cada grupo

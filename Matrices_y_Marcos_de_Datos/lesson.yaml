@@ -83,7 +83,7 @@
   Output: El ejemplo que hemos usado hasta ahora fue pensado para ilustrar el punto de que una matriz es simplemente un vector atómico con un atributo de dimensión. Una forma más directa de crear la misma matriz es con la función matrix().
 
 - Class: cmd_question
-  Output: Ahora obtén el archivo de ayua para la función matrix() usando la función `?`.
+  Output: Ahora obtén el archivo de ayuda para la función matrix() usando la función `?`.
   CorrectAnswer: ?matrix
   AnswerTests: omnitest(correctExpr='?matrix')
   Hint: El comando ?matrix hará el truco.

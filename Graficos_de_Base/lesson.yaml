@@ -116,10 +116,10 @@
   Hint: Tipea plot(cars, main = "Mi Plot") para crear el plot
 
 - Class: cmd_question
-  Output: Plotea cars con el subtítulo "Mi Subtítulo del Plot".
-  CorrectAnswer: plot(cars, sub = "Mi Subtítulo del Plot")
-  AnswerTests: omnitest(correctExpr='plot(cars, sub = "Mi Subtítulo del Plot")')
-  Hint: Tipea plot(cars, sub = "Mi Subtítulo del Plot") para crear el plot
+  Output: Plotea cars con el subtítulo "Mi Sub del Plot".
+  CorrectAnswer: plot(cars, sub = "Mi Sub del Plot")
+  AnswerTests: omnitest(correctExpr='plot(cars, sub = "Mi Sub del Plot")')
+  Hint: Tipea plot(cars, sub = "Mi Sub del Plot") para crear el plot
 
 - Class: text
   Output: La página de ayuda de plot (?plot) sólo cubre un número pequeño de los muchos argumentos que pueden ser pasados a plot() y otras funciones gráficas. Para empezar a explorar las muchas otras opciones, mira a ?par. Veamos algunas de las más comúnmente usadas. Continua usando plot(cars, ...) como la respuseta base a estas preguntas.

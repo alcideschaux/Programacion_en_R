@@ -86,7 +86,7 @@
   Hint: Tipea ?rbinom para obtener el archivo de ayuda de rbinom()
 
 - Class: text
-  Output: Cada probabilidad en R tiene una función r*** (por "random", aleatorio), una función d*** (por "density", densidad), a función p*** (por "probability", probabilidad) y una función q*** (por "quantile", cuartilo). Estamos más interesados en las funciones r*** en esta lección, pero te aliento a que explores las otras por tu cuenta.
+  Output: Cada probabilidad en R tiene una función r*** (por "random", aleatorio), una función d*** (por "density", densidad), una función p*** (por "probability", probabilidad) y una función q*** (por "quantile", cuartilo). Estamos más interesados en las funciones r*** en esta lección, pero te aliento a que explores las otras por tu cuenta.
 
 - Class: cmd_question
   Output: Una variable aleatoria binomial representa el número de "éxitos" (caras) en un determinado número de "evaluaciones" independientes (lanzamientos de moneda). Por lo tanto, podemos general una variable aleatoria simple que represente el número de caras en 100 lanzamientos arreglados usando rbinom(1, size = 100, prob = 0.7). Nota que sólo especificas la probabilidad de "éxitos" (caras) y NO la probabilidad de "fracasos" (cruces). Inténtalo ahora.
