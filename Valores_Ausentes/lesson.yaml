@@ -1,17 +1,23 @@
 - Class: meta
   Course: Programación en R
-  Lesson: Valores Ausentes
-  Author: Nick Carchedi
-  Traductor: Alcides Chaux, M.D.
-  Type:
-  Organization:
-  Version:
+  Lesson: Valores Faltantes
+  Author: Alcides Chaux, M.D.
+  Version: 1.0.0
 
 - Class: text
-  Output: Los valores ausentes ("missing values") juegan un rol importante en estadística y análisis de datos. A menudo, los valores perdidos no deben ser ignorados, sino más bien deberían ser cuidadosamente estudiados para ver si hay algún patrón subyacente o causa por la cual están ausentes.
+  Output: En esta lección hablaremos acerca de tipo particular de datos denominados valores faltantes ("missing values" en inglés). En estadística, se dan valores faltantes cuando no se almacenan o registran los valores de una variable para una observación en particular.
 
 - Class: text
-  Output: En R, se usa NA ("not available") para representar cualquier valor que no se encuentra disponible o que está ausente (en el sentido estadístico). En esta lección, exploraremos los valores ausentes con más detalle.
+  Output: Le dedicamos toda una lección a estos valores faltantes ya que pueden tener efectos significativos en las conclusiones que se pueden extraer de nuestros datos!
+
+- Class: text
+  Output: Por lo tanto, los valores faltantes juegan un rol importante en estadística y análisis de datos. A menudo, los valores faltantes deben ser cuidadosamente estudiados para ver si hay algún patrón subyacente o entender causa por la cual están ausentes.
+
+- Class: text
+  Output: Esto es particularmente cierto si es que la condición de valor faltante no es un evento aleatorio, sino que se relaciona de alguna manera con la variable de interés.
+
+- Class: text
+  Output: En R, se usa NA ("not available") para representar cualquier valor que no se encuentra disponible o que falta. De aqui en adelante, usaremos NA para referirnos a estos valores faltantes.
 
 - Class: cmd_question
   Output: Cualquier operación que involucre NA generalmente da NA como resultado. Para ilustrar este punto, creemos un vector c(44, NA, 5, NA) y asignémoslo a la variable x.
